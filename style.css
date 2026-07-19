@@ -1,0 +1,344 @@
+/* adam-costa.com — minimalist black & white with a single accent */
+
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --muted: #6f6f6f;
+  --rule: #e6e6e6;
+  --accent: #c2410c;
+  --accent-dark: #9a3412;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Newsreader", Georgia, "Times New Roman", serif;
+  font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.1875rem);
+  line-height: 1.65;
+  font-optical-sizing: auto;
+}
+
+.container {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+::selection { background: #fde8dd; }
+
+/* ---------- header ---------- */
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding: 1.75rem 0 1.5rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 2.5rem;
+}
+
+.site-name {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.site-name:hover { color: var(--accent); }
+
+header nav {
+  display: flex;
+  gap: 1.25rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.875rem;
+}
+
+header nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+header nav a:hover { color: var(--accent); }
+header nav a.active { color: var(--text); font-weight: 500; }
+
+/* ---------- nav dropdowns ---------- */
+
+.nav-item { position: relative; }
+
+.nav-item > .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  min-width: 14rem;
+  max-width: 90vw;
+  max-height: 70vh;
+  overflow-y: auto;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.10);
+  padding: 0.45rem 0;
+}
+
+.nav-item:last-child > .dropdown { left: auto; right: 0; transform: none; }
+
+.nav-item:hover > .dropdown,
+.nav-item:focus-within > .dropdown { display: block; }
+
+.dropdown a {
+  display: block;
+  padding: 0.32rem 0.95rem;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.dropdown a:hover { background: #f7f4f2; color: var(--accent); }
+
+/* touch screens: no hover, so dropdowns stay hidden; top-level links still work */
+@media (max-width: 640px) {
+  .nav-item > .dropdown { display: none !important; }
+}
+
+/* ---------- typography ---------- */
+
+h1 {
+  font-size: clamp(1.85rem, 1.4rem + 2vw, 2.5rem);
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0.25rem 0 1.25rem;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 600;
+  margin: 2.25rem 0 0.75rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  line-height: 1.3;
+  font-weight: 600;
+  margin: 1.75rem 0 0.5rem;
+}
+
+h4 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+
+p { margin: 0 0 1.1rem; }
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: #e0a58a;
+}
+a:hover { color: var(--accent-dark); text-decoration-color: var(--accent-dark); }
+
+h1 a, h2 a, h3 a { color: inherit; text-decoration: none; }
+h1 a:hover, h2 a:hover, h3 a:hover { color: var(--accent); }
+
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.5rem; }
+li { margin-bottom: 0.4rem; }
+li > ul, li > ol { margin-top: 0.4rem; }
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0.1rem 0 0.1rem 1.15rem;
+  border-left: 3px solid var(--accent);
+  color: #444;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2.5rem 0;
+}
+
+strong { font-weight: 600; }
+
+code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  background: #f5f5f5;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+.kicker {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin: 0 0 0.75rem;
+}
+.kicker a { color: var(--muted); text-decoration: none; }
+.kicker a:hover { color: var(--accent); }
+
+/* ---------- images & figures ---------- */
+
+img { max-width: 100%; height: auto; }
+
+figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+figcaption {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--muted);
+  margin-top: 0.6rem;
+  text-align: left;
+}
+
+/* ---------- tables ---------- */
+
+.table-wrap { overflow-x: auto; margin: 1.75rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+th {
+  font-weight: 600;
+  border-bottom: 2px solid var(--text);
+  white-space: nowrap;
+}
+
+/* ---------- video links ---------- */
+
+.watch a {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  display: inline-block;
+}
+.watch a:hover { border-color: var(--accent); }
+
+/* ---------- index lists (home, life) ---------- */
+
+.index-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.index-list li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--rule);
+  margin: 0;
+}
+.index-list li:first-child { border-top: 1px solid var(--rule); }
+
+.index-list a {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+}
+.index-list a:hover { color: var(--accent); }
+
+.item-desc {
+  display: block;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+
+/* ---------- homepage ---------- */
+
+.lede {
+  font-size: 1.25rem;
+  line-height: 1.55;
+  color: #333;
+}
+
+.home section { margin-top: 3rem; }
+
+.cta {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* ---------- prev / next ---------- */
+
+.prevnext {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 3rem 0 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.pn { display: flex; flex-direction: column; gap: 0.15rem; text-decoration: none; }
+.pn.next { text-align: right; }
+
+.pn-label {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.pn-title { color: var(--text); font-weight: 500; line-height: 1.3; }
+a.pn:hover .pn-title { color: var(--accent); }
+
+/* ---------- footer ---------- */
+
+footer {
+  margin-top: 4rem;
+  padding: 1.5rem 0 2.5rem;
+  border-top: 1px solid var(--rule);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+footer a { color: var(--muted); }
+footer a:hover { color: var(--accent); }
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 480px) {
+  header { padding-top: 1.25rem; }
+  header nav { gap: 1rem; }
+  .prevnext { grid-template-columns: 1fr; }
+  .pn.next { text-align: left; }
+}
