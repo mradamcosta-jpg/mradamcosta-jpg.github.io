@@ -3,36 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>exhale · slow-breathing timer</title>
+<title>Exhale · slow-breathing timer</title>
 <style>
+  /* ---- page theme: matches the rest of Adam's tools (light + dark) ---- */
   :root {
-    --bg-dark: #0f2438;
-    --bg-mid: #1a3a52;
-    --accent-light: #a8d5e8;
-    --accent-mid: #7aa8c4;
-    --text: #e8f2f8;
-    --color-in: #a8d5e8;
-    --color-out: #a8dcba;
+    --bg:#fafaf8; --fg:#1a1a1a; --muted:#666; --card:#fff; --border:#e2e2dd; --accent:#2f6f4f; --accent-soft:#e8f2ec;
+    /* ---- breathing-bar colours (kept blue/green in every theme) ---- */
+    --bg-dark:#0f2438; --bg-mid:#1a3a52; --accent-light:#a8d5e8; --accent-mid:#7aa8c4;
+    --bar-text:#e8f2f8; --color-in:#a8d5e8; --color-out:#a8dcba;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#151517; --fg:#e8e8e6; --muted:#9a9a97; --card:#1e1e21; --border:#2e2e33; --accent:#6fbf94; --accent-soft:#213a2e; }
   }
   * { box-sizing: border-box; }
-  html, body {
-    margin: 0;
-    padding: 0;
-    background: var(--bg-dark);
-    color: var(--text);
-    font-family: Georgia, serif;
-  }
   body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100%;
   }
-  /* ---- the floating timer widget (unchanged behaviour) ---- */
+  .wrap { width: 100%; max-width: 640px; padding: 28px 20px 72px; }
+  a.home { color: var(--muted); font-size: .85rem; text-decoration: none; }
+  a.home:hover { color: var(--accent); }
+
+  /* ---- the breathing-bar widget (blue/green, unchanged behaviour) ---- */
   #main {
     width: 340px;
     height: 160px;
-    margin: 40px 0 8px;
+    margin: 22px auto 8px;
     background: linear-gradient(180deg, var(--bg-mid), var(--bg-dark));
     border-radius: 10px;
     border: 1px solid rgba(122, 168, 196, 0.15);
@@ -67,14 +69,8 @@
     animation-iteration-count: infinite;
     animation-timing-function: linear;
   }
-  [data-mode="46"] .pill {
-    animation-name: breathe-46;
-    animation-duration: 10s;
-  }
-  [data-mode="48"] .pill {
-    animation-name: breathe-48;
-    animation-duration: 12s;
-  }
+  [data-mode="46"] .pill { animation-name: breathe-46; animation-duration: 10s; }
+  [data-mode="48"] .pill { animation-name: breathe-48; animation-duration: 12s; }
   @keyframes breathe-46 {
     0%   { transform: scaleX(0.12); opacity: 0.55; filter: hue-rotate(0deg); }
     40%  { transform: scaleX(1.00); opacity: 1.00; filter: hue-rotate(0deg); }
@@ -93,6 +89,7 @@
     height: 20px;
     font-size: 14px;
     font-style: italic;
+    font-family: Georgia, serif;
     color: var(--accent-light);
     letter-spacing: 6px;
     opacity: 0.9;
@@ -100,50 +97,20 @@
   }
   .label-in, .label-out {
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
+    left: 0; right: 0; top: 0;
     animation-iteration-count: infinite;
     animation-timing-function: steps(1, end);
   }
   .label-in { color: var(--color-in); }
   .label-out { color: var(--color-out); }
-  [data-mode="46"] .label-in {
-    animation-name: label-in-46;
-    animation-duration: 10s;
-  }
-  [data-mode="46"] .label-out {
-    animation-name: label-out-46;
-    animation-duration: 10s;
-  }
-  [data-mode="48"] .label-in {
-    animation-name: label-in-48;
-    animation-duration: 12s;
-  }
-  [data-mode="48"] .label-out {
-    animation-name: label-out-48;
-    animation-duration: 12s;
-  }
-  @keyframes label-in-46 {
-    0%   { opacity: 1; }
-    40%  { opacity: 0; }
-    100% { opacity: 0; }
-  }
-  @keyframes label-out-46 {
-    0%   { opacity: 0; }
-    40%  { opacity: 1; }
-    100% { opacity: 1; }
-  }
-  @keyframes label-in-48 {
-    0%     { opacity: 1; }
-    33.33% { opacity: 0; }
-    100%   { opacity: 0; }
-  }
-  @keyframes label-out-48 {
-    0%     { opacity: 0; }
-    33.33% { opacity: 1; }
-    100%   { opacity: 1; }
-  }
+  [data-mode="46"] .label-in { animation-name: label-in-46; animation-duration: 10s; }
+  [data-mode="46"] .label-out { animation-name: label-out-46; animation-duration: 10s; }
+  [data-mode="48"] .label-in { animation-name: label-in-48; animation-duration: 12s; }
+  [data-mode="48"] .label-out { animation-name: label-out-48; animation-duration: 12s; }
+  @keyframes label-in-46 { 0% { opacity: 1; } 40% { opacity: 0; } 100% { opacity: 0; } }
+  @keyframes label-out-46 { 0% { opacity: 0; } 40% { opacity: 1; } 100% { opacity: 1; } }
+  @keyframes label-in-48 { 0% { opacity: 1; } 33.33% { opacity: 0; } 100% { opacity: 0; } }
+  @keyframes label-out-48 { 0% { opacity: 0; } 33.33% { opacity: 1; } 100% { opacity: 1; } }
   .controls {
     display: flex;
     justify-content: space-between;
@@ -151,13 +118,9 @@
     font-size: 10px;
     letter-spacing: 1px;
     color: var(--accent-mid);
-  }
-  .toggle {
-    display: flex;
-    gap: 3px;
-    user-select: none;
     font-family: Georgia, serif;
   }
+  .toggle { display: flex; gap: 3px; user-select: none; }
   .toggle span {
     padding: 3px 9px;
     border-radius: 3px;
@@ -165,13 +128,8 @@
     transition: background 0.2s, color 0.2s;
     font-size: 11px;
   }
-  .toggle span.active {
-    background: rgba(168, 213, 232, 0.18);
-    color: var(--text);
-  }
-  .toggle span:hover:not(.active) {
-    background: rgba(168, 213, 232, 0.08);
-  }
+  .toggle span.active { background: rgba(168, 213, 232, 0.18); color: var(--bar-text); }
+  .toggle span:hover:not(.active) { background: rgba(168, 213, 232, 0.08); }
   .popout {
     cursor: pointer;
     color: var(--accent-mid);
@@ -184,11 +142,7 @@
     letter-spacing: 1px;
     transition: all 0.2s;
   }
-  .popout:hover {
-    background: rgba(168, 213, 232, 0.12);
-    color: var(--text);
-    border-color: var(--accent-light);
-  }
+  .popout:hover { background: rgba(168, 213, 232, 0.12); color: var(--bar-text); border-color: var(--accent-light); }
   .placeholder {
     flex: 1;
     display: flex;
@@ -200,87 +154,90 @@
     letter-spacing: 3px;
     opacity: 0.5;
   }
-  /* ---- the write-up below the timer ---- */
   .hint {
-    color: var(--accent-mid);
+    text-align: center;
+    color: var(--muted);
     font-size: 12px;
     font-style: italic;
-    letter-spacing: 1px;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
   }
-  article {
-    max-width: 620px;
-    width: 100%;
-    padding: 0 22px 72px;
-    line-height: 1.65;
+
+  /* ---- download button ---- */
+  .download {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
   }
-  article h1 {
-    font-size: 1.5rem;
-    font-weight: normal;
-    letter-spacing: 1px;
-    margin: 12px 0 4px;
-    color: var(--accent-light);
+  .download a {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 999px;
+    transition: opacity 0.15s;
   }
-  article h2 {
-    font-size: 1.1rem;
-    font-weight: normal;
-    letter-spacing: 0.5px;
-    margin: 34px 0 8px;
-    color: var(--accent-light);
-    border-bottom: 1px solid rgba(122, 168, 196, 0.18);
+  .download a:hover { opacity: 0.88; }
+  .download-note { text-align: center; color: var(--muted); font-size: 0.78rem; margin: 6px 0 30px; }
+
+  /* ---- write-up ---- */
+  h1 { font-size: 1.55rem; margin: 8px 0 4px; }
+  .lede { color: var(--muted); font-size: 1rem; margin: 0 0 8px; }
+  h2 {
+    font-size: 1.15rem;
+    margin: 32px 0 8px;
     padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
   }
-  article p { margin: 12px 0; color: var(--text); }
-  article a { color: var(--color-out); }
-  .lede { color: var(--accent-mid); font-style: italic; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 14px 0;
-    font-size: 0.92rem;
-  }
-  th, td {
-    text-align: left;
-    padding: 8px 10px;
-    border-bottom: 1px solid rgba(122, 168, 196, 0.18);
-    vertical-align: top;
-  }
-  th { color: var(--accent-light); font-weight: normal; }
+  p { margin: 12px 0; }
+  a { color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { font-weight: 600; }
   .callout {
-    background: rgba(168, 220, 186, 0.08);
-    border: 1px solid rgba(168, 220, 186, 0.28);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
     border-radius: 8px;
-    padding: 14px 18px;
+    padding: 12px 16px;
     margin: 20px 0;
   }
-  .callout strong { color: var(--color-out); }
-  .refs { font-size: 0.82rem; color: var(--accent-mid); }
+  .callout p { margin: 0; }
+  .refs { font-size: 0.82rem; color: var(--muted); padding-left: 1.2rem; }
   .refs li { margin: 6px 0; }
-  .disclaimer { font-size: 0.8rem; color: var(--accent-mid); font-style: italic; margin-top: 30px; }
-  .back { display: inline-block; margin: 4px 0 0; font-size: 0.85rem; color: var(--accent-mid); }
+  .disclaimer { font-size: 0.8rem; color: var(--muted); font-style: italic; margin-top: 28px; }
 </style>
 </head>
 <body>
-<div id="main">
-  <div class="breath-area" id="breath" data-mode="46">
-    <div class="pill-wrap"><div class="pill"></div></div>
-    <div class="label">
-      <span class="label-in">in</span>
-      <span class="label-out">out</span>
-    </div>
-  </div>
-  <div class="controls">
-    <div class="toggle" id="toggle">
-      <span data-pattern="46" class="active">4·6</span>
-      <span data-pattern="48">4·8</span>
-    </div>
-    <button class="popout" id="popout">pop out ⇱</button>
-  </div>
-</div>
-<div class="hint">breathe in as the bar grows, out as it shrinks</div>
+<div class="wrap">
+  <a class="home" href="index.html">← all tools</a>
 
-<article>
-  <h1>exhale — a slow-breathing timer for blood pressure</h1>
+  <div id="main">
+    <div class="breath-area" id="breath" data-mode="46">
+      <div class="pill-wrap"><div class="pill"></div></div>
+      <div class="label">
+        <span class="label-in">in</span>
+        <span class="label-out">out</span>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="toggle" id="toggle">
+        <span data-pattern="46" class="active">4·6</span>
+        <span data-pattern="48">4·8</span>
+      </div>
+      <button class="popout" id="popout">pop out ⇱</button>
+    </div>
+  </div>
+  <div class="hint">breathe in as the bar grows, out as it shrinks</div>
+
+  <div class="download">
+    <a href="exhale-standalone.html" download="exhale-timer.html">↓ Download the timer</a>
+  </div>
+  <div class="download-note">A single file — save it, open it anytime, works with no internet.</div>
+
+  <h1>Exhale — a slow-breathing timer for blood pressure</h1>
   <p class="lede">A quiet pacer for the one breathing pattern with real evidence behind it: slow, and with a long exhale.</p>
 
   <h2>What it is</h2>
@@ -331,13 +288,13 @@
   <h2>Sources</h2>
   <ul class="refs">
     <li><a href="https://www.sciencedirect.com/science/article/abs/pii/S0965229918304242" target="_blank" rel="noopener">Device and non-device-guided slow breathing to reduce blood pressure: a systematic review and meta-analysis</a></li>
-    <li>American Physiological Society — <a href="https://journals.physiology.org/doi/full/10.1152/japplphysiol.00442.2019" target="_blank" rel="noopener">Device-guided slow breathing reduces blood pressure and sympathetic activity</a></li>
-    <li>NYU Clinical Correlations — <a href="https://www.clinicalcorrelations.org/2018/01/24/slow-respiration-to-lower-blood-pressure-2/" target="_blank" rel="noopener">Slow respiration to lower blood pressure</a> (AHA rating, RESPeRATE, Mayer-wave mechanism)</li>
-    <li>PMC — <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10844494/" target="_blank" rel="noopener">Mindful breathing as an effective technique in the management of hypertension</a></li>
+    <li><a href="https://journals.physiology.org/doi/full/10.1152/japplphysiol.00442.2019" target="_blank" rel="noopener">Device-guided slow breathing reduces blood pressure and sympathetic activity</a></li>
+    <li><a href="https://www.clinicalcorrelations.org/2018/01/24/slow-respiration-to-lower-blood-pressure-2/" target="_blank" rel="noopener">Slow respiration to lower blood pressure</a> (AHA rating, RESPeRATE, Mayer-wave mechanism)</li>
+    <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10844494/" target="_blank" rel="noopener">Mindful breathing as an effective technique in the management of hypertension</a></li>
   </ul>
 
-  <a class="back" href="index.html">← all tools</a>
-</article>
+  <p><a class="home" href="index.html">← all tools</a></p>
+</div>
 
 <script>
   const toggleEl = document.getElementById('toggle');
@@ -372,7 +329,7 @@
       // Changing data-mode restarts BOTH pill and label animations
       // in the same paint frame, keeping them perfectly synced.
       breathEl.dataset.mode = pattern;
-      document.title = `exhale · ${pattern === '46' ? '4·6' : '4·8'}`;
+      document.title = `Exhale · ${pattern === '46' ? '4·6' : '4·8'}`;
     });
   });
 

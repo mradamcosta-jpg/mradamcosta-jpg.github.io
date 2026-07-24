@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>exhale · 4·6</title>
+<style>
+  :root {
+    --bg-dark: #0f2438;
+    --bg-mid: #1a3a52;
+    --accent-light: #a8d5e8;
+    --accent-mid: #7aa8c4;
+    --text: #e8f2f8;
+    --color-in: #a8d5e8;
+    --color-out: #a8dcba;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-dark);
+    color: var(--text);
+    font-family: Georgia, serif;
+    height: 100%;
+    overflow: hidden;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+  #main {
+    width: 340px;
+    height: 160px;
+    background: linear-gradient(180deg, var(--bg-mid), var(--bg-dark));
+    border-radius: 10px;
+    border: 1px solid rgba(122, 168, 196, 0.15);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .breath-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .pill-wrap {
+    width: 260px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pill {
+    width: 260px;
+    height: 22px;
+    background: linear-gradient(90deg, var(--accent-mid), var(--accent-light), var(--accent-mid));
+    border-radius: 11px;
+    transform-origin: center;
+    box-shadow: 0 0 22px rgba(168, 213, 232, 0.35);
+    will-change: transform, opacity;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  [data-mode="46"] .pill { animation-name: breathe-46; animation-duration: 10s; }
+  [data-mode="48"] .pill { animation-name: breathe-48; animation-duration: 12s; }
+  @keyframes breathe-46 {
+    0%   { transform: scaleX(0.12); opacity: 0.55; filter: hue-rotate(0deg); }
+    40%  { transform: scaleX(1.00); opacity: 1.00; filter: hue-rotate(0deg); }
+    41%  { transform: scaleX(0.985); opacity: 0.99; filter: hue-rotate(-70deg); }
+    100% { transform: scaleX(0.12); opacity: 0.55; filter: hue-rotate(-70deg); }
+  }
+  @keyframes breathe-48 {
+    0%      { transform: scaleX(0.12); opacity: 0.55; filter: hue-rotate(0deg); }
+    33.33%  { transform: scaleX(1.00); opacity: 1.00; filter: hue-rotate(0deg); }
+    34.33%  { transform: scaleX(0.987); opacity: 0.99; filter: hue-rotate(-70deg); }
+    100%    { transform: scaleX(0.12); opacity: 0.55; filter: hue-rotate(-70deg); }
+  }
+  .label {
+    position: relative;
+    width: 80px;
+    height: 20px;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--accent-light);
+    letter-spacing: 6px;
+    opacity: 0.9;
+    text-align: center;
+  }
+  .label-in, .label-out {
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1, end);
+  }
+  .label-in { color: var(--color-in); }
+  .label-out { color: var(--color-out); }
+  [data-mode="46"] .label-in { animation-name: label-in-46; animation-duration: 10s; }
+  [data-mode="46"] .label-out { animation-name: label-out-46; animation-duration: 10s; }
+  [data-mode="48"] .label-in { animation-name: label-in-48; animation-duration: 12s; }
+  [data-mode="48"] .label-out { animation-name: label-out-48; animation-duration: 12s; }
+  @keyframes label-in-46 { 0% { opacity: 1; } 40% { opacity: 0; } 100% { opacity: 0; } }
+  @keyframes label-out-46 { 0% { opacity: 0; } 40% { opacity: 1; } 100% { opacity: 1; } }
+  @keyframes label-in-48 { 0% { opacity: 1; } 33.33% { opacity: 0; } 100% { opacity: 0; } }
+  @keyframes label-out-48 { 0% { opacity: 0; } 33.33% { opacity: 1; } 100% { opacity: 1; } }
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--accent-mid);
+  }
+  .toggle { display: flex; gap: 3px; user-select: none; font-family: Georgia, serif; }
+  .toggle span {
+    padding: 3px 9px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    font-size: 11px;
+  }
+  .toggle span.active { background: rgba(168, 213, 232, 0.18); color: var(--text); }
+  .toggle span:hover:not(.active) { background: rgba(168, 213, 232, 0.08); }
+  .popout {
+    cursor: pointer;
+    color: var(--accent-mid);
+    background: transparent;
+    border: 1px solid rgba(122, 168, 196, 0.35);
+    border-radius: 3px;
+    padding: 3px 10px;
+    font-family: Georgia, serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+  }
+  .popout:hover { background: rgba(168, 213, 232, 0.12); color: var(--text); border-color: var(--accent-light); }
+  .placeholder {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-mid);
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 3px;
+    opacity: 0.5;
+  }
+  .credit {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--accent-mid);
+    opacity: 0.6;
+    text-decoration: none;
+  }
+  .credit:hover { opacity: 1; }
+</style>
+</head>
+<body>
+<div id="main">
+  <div class="breath-area" id="breath" data-mode="46">
+    <div class="pill-wrap"><div class="pill"></div></div>
+    <div class="label">
+      <span class="label-in">in</span>
+      <span class="label-out">out</span>
+    </div>
+  </div>
+  <div class="controls">
+    <div class="toggle" id="toggle">
+      <span data-pattern="46" class="active">4·6</span>
+      <span data-pattern="48">4·8</span>
+    </div>
+    <button class="popout" id="popout">pop out ⇱</button>
+  </div>
+</div>
+<a class="credit" href="https://adam-costa.com/tools/exhale.html" target="_blank" rel="noopener">how &amp; why · adam-costa.com/tools</a>
+<script>
+  const toggleEl = document.getElementById('toggle');
+  const popoutBtn = document.getElementById('popout');
+  const breathEl = document.getElementById('breath');
+  const main = document.getElementById('main');
+
+  let currentPattern = '46';
+
+  // After moving #breath between documents (main <-> PiP), Chrome may restart
+  // some animations while preserving others, leaving them out of sync.
+  function syncAnimations() {
+    requestAnimationFrame(() => {
+      breathEl.querySelectorAll('.pill, .label-in, .label-out').forEach(el => {
+        el.getAnimations().forEach(anim => { anim.currentTime = 0; });
+      });
+    });
+  }
+
+  toggleEl.querySelectorAll('span').forEach(span => {
+    span.addEventListener('click', () => {
+      const pattern = span.dataset.pattern;
+      if (pattern === currentPattern) return;
+      currentPattern = pattern;
+      toggleEl.querySelectorAll('span').forEach(s =>
+        s.classList.toggle('active', s.dataset.pattern === pattern)
+      );
+      breathEl.dataset.mode = pattern;
+      document.title = `exhale · ${pattern === '46' ? '4·6' : '4·8'}`;
+    });
+  });
+
+  // Document Picture-in-Picture (always-on-top window)
+  popoutBtn.addEventListener('click', async () => {
+    if (popoutBtn.dataset.state === 'popped') {
+      if (window._pipWin && !window._pipWin.closed) window._pipWin.close();
+      return;
+    }
+    if (!('documentPictureInPicture' in window)) {
+      alert(
+        'Always-on-top mode needs Chrome or Edge (version 116 or newer).\n\n' +
+        'This tab will still work as a normal window — you can resize it small ' +
+        'and keep it in a corner, but it won\'t float above other apps.'
+      );
+      return;
+    }
+    try {
+      const pipWindow = await documentPictureInPicture.requestWindow({ width: 320, height: 90 });
+      window._pipWin = pipWindow;
+
+      [...document.styleSheets].forEach(styleSheet => {
+        try {
+          const cssRules = [...styleSheet.cssRules].map(r => r.cssText).join('');
+          const style = document.createElement('style');
+          style.textContent = cssRules;
+          pipWindow.document.head.appendChild(style);
+        } catch (e) {
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = styleSheet.href;
+          pipWindow.document.head.appendChild(link);
+        }
+      });
+
+      pipWindow.document.title = 'exhale';
+      pipWindow.document.body.style.background = '#0f2438';
+      pipWindow.document.body.style.margin = '0';
+      pipWindow.document.body.append(breathEl);
+      syncAnimations();
+
+      const placeholder = document.createElement('div');
+      placeholder.className = 'placeholder';
+      placeholder.id = 'placeholder';
+      placeholder.textContent = 'popped out';
+      main.insertBefore(placeholder, main.firstChild);
+
+      popoutBtn.textContent = 'bring back ⇲';
+      popoutBtn.dataset.state = 'popped';
+
+      pipWindow.addEventListener('pagehide', () => {
+        const ph = document.getElementById('placeholder');
+        if (ph) { main.insertBefore(breathEl, ph); ph.remove(); }
+        else { main.insertBefore(breathEl, main.firstChild); }
+        syncAnimations();
+        popoutBtn.textContent = 'pop out ⇱';
+        popoutBtn.dataset.state = '';
+        window._pipWin = null;
+      });
+    } catch (err) {
+      console.error('PiP error:', err);
+      alert('Could not open the floating window. Try refreshing the page.');
+    }
+  });
+</script>
+</body>
+</html>
