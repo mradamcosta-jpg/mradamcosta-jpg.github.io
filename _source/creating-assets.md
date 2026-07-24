@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/financial-freedom/how-to-increase-your-income/creating-assets/"
 ---
 
-![](images/image-23-700x265.png)In addition to buying assets, create your own to capture the most upside.
+![](Claude/Website/_source/images/image-23-700x265.png)In addition to buying assets, create your own to capture the most upside.
 
 ## Have fun—and make money along the way
 

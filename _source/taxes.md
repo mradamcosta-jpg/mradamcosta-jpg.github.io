@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/financial-freedom/reduce-expenses/taxes/"
 ---
 
-![An image of flight departures. You'll be able to save money on taxes by traveling more.](images/image-12-700x464.png)Tax planning never looked better. (Source: [JESHOOTS.COM](https://unsplash.com/@jeshoots?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).)
+![An image of flight departures. You'll be able to save money on taxes by traveling more.](Claude/Website/_source/images/image-12-700x464.png)Tax planning never looked better. (Source: [JESHOOTS.COM](https://unsplash.com/@jeshoots?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).)
 
 ## Slash your tax bill with these exciting strategies (and a few boring ones)
 

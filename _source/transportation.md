@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/financial-freedom/reduce-expenses/transportation/"
 ---
 
-![](images/Transportation-costs-700x414.png)Top transportation expenses. (Source: Bureau of Transportation Statistics)
+![](Claude/Website/_source/images/Transportation-costs-700x414.png)Top transportation expenses. (Source: Bureau of Transportation Statistics)
 
 ## Reduce your transportation costs with these simple tips
 
@@ -42,7 +42,7 @@ It really is that simple. Really. But since the devil's in the details, let's br
 
 According to the Bureau of Transportation Statistics, here's what people in the US spend on transportation:
 
-![](images/Transportation-costs-700x414.png)Top transportation expenses. (Source: Bureau of Transportation Statistics)
+![](Claude/Website/_source/images/Transportation-costs-700x414.png)Top transportation expenses. (Source: Bureau of Transportation Statistics)
 
 "Vehicle purchases" is self-explanatory. 
 
@@ -80,7 +80,7 @@ Let's review three ways to reduce car expenses: eliminate a car, use the car les
 
 My wife and I've shared a car for ten years. A quick look at the Bureau of Labor Statistics (see below) shows the average person spends $4,001 on a new car, and about $5,000 for fuel and other vehicle expenditures. 
 
-![](images/Average-transportation-expenses-700x429.png)How much money the average household spends on transportation. 
+![](Claude/Website/_source/images/Average-transportation-expenses-700x429.png)How much money the average household spends on transportation. 
 
 How much have we saved by not buying a second car? Let's do the math. First, we saved $4,000 by NOT buying a car in the first place, plus an additional $5,000 a year for 10 years.
 

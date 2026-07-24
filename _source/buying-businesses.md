@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/financial-freedom/how-to-increase-your-income/buying-businesses/"
 ---
 
-![](images/image-1-700x561.png)Photo by [Austin Distel](https://unsplash.com/@austindistel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/entrepreneur?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+![](Claude/Website/_source/images/image-1-700x561.png)Photo by [Austin Distel](https://unsplash.com/@austindistel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/entrepreneur?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
 ## Buying a business can be highly profitable, with limited risk—if you know what you're doing
 
@@ -197,7 +197,7 @@ The broker will provide you extra details (e.g. more in-depth financials). In ad
 
 During this call, you, the owner, and the broker will take a quick tour through the owner's business. They'll show you their payment setup, back-end system, and anything else you'd like to see. The payment process is important to do live, because it helps verify the income. As you can imagine, it's pretty easy to photoshop a fake number. Case in point:
 
-![](images/image-2-700x245.png)
+![](Claude/Website/_source/images/image-2-700x245.png)
 
 ### Step 5: Do your due diligence
 
@@ -267,11 +267,11 @@ Your next step—if you haven't done it already—is to go through Analytics and
 
 You can do a hell of a lot more than the above, but this is good enough to start. If you don't know how to find these in Google Analytics, you can take a look at the dashboard, which includes many of these by default. Here's what I see when I log in:
 
-![](images/image-700x387.png)The Google Analytics dashboard.
+![](Claude/Website/_source/images/image-700x387.png)The Google Analytics dashboard.
 
 You can also search for the reports in the search bar at the top of the page:
 
-![](images/image-1-700x61.png)
+![](Claude/Website/_source/images/image-1-700x61.png)
 
 Copy and paste the bullets I included above into the search bar to see the reports. Easy.
 
@@ -279,7 +279,7 @@ Now that you've identified the key pages in the funnel, you'll want to see how u
 
 Here's an example of a heatmap:
 
-![Hotjar heatmaps are vital to growing your new online business.](images/Hotjar-heatmap-and-scrollmap-700x350.jpg)A scroll map (left) and a click map (right) on the hotjar.com homepage.
+![Hotjar heatmaps are vital to growing your new online business.](Claude/Website/_source/images/Hotjar-heatmap-and-scrollmap-700x350.jpg)A scroll map (left) and a click map (right) on the hotjar.com homepage.
 
 The scroll map on the left shows how far down a page users scroll; it starts "red hot" and goes "ice cold" as few people scroll down the page.
 
@@ -287,7 +287,7 @@ The click map on the right shows which elements users click; the brighter an ele
 
 In addition to heatmaps, you can also use Hotjar to ask your visitors what they like and don't like about your website. To do this, create a poll and add your question; it will look like this on your site:
 
-![](images/image-2-700x423.png)The black box is an example of a Hotjar poll. You can ask any question you want.
+![](Claude/Website/_source/images/image-2-700x423.png)The black box is an example of a Hotjar poll. You can ask any question you want.
 
 Besides Analytics, user testing, Hotjar heatmaps, and polls, you've plenty of other options to gather feedback—though I suggest you stick with these four at the beginning. The point is to get *actionable* feedback quickly; don't spend months poring over the data. Just get some feedback, and then focus on fixing any problems that people mention. This will also help you increase your sales and new customers. More on that in the next section.
 

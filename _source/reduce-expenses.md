@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/financial-freedom/reduce-expenses/"
 ---
 
-![](images/image-14-700x442.png)A great life is exciting, not expensive. (Source: [Derek Owens](https://unsplash.com/@derekowensheart?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).)
+![](image-14-700x442.png)A great life is exciting, not expensive. (Source: [Derek Owens](https://unsplash.com/@derekowensheart?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).)
 
 ## Forget coupons—use this big-picture view of saving money, that's actually fun
 
@@ -18,7 +18,7 @@ Sure, you'll save a few dollars on coffee, but you'll save more—and reach your
 
 Look at the following chart:
 
-![The four largest expenses are housing, taxes, transportation, and food. ](images/image-1-700x616.png)The four largest expenses are housing, taxes, transportation, and food.
+![The four largest expenses are housing, taxes, transportation, and food. ](image-1-700x616.png)The four largest expenses are housing, taxes, transportation, and food.
 
 Above, you see the biggest expenses are [housing](https://adam-costa.com/financial-freedom/reduce-expenses/housing/), [taxes](https://adam-costa.com/financial-freedom/reduce-expenses/taxes/), [transportation](https://adam-costa.com/financial-freedom/reduce-expenses/transportation/), and food. These are the "big fish." 
 

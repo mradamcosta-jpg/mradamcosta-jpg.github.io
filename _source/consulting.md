@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/financial-freedom/how-to-increase-your-income/consulting/"
 ---
 
-![Client + consultant = results. ](images/image-24-700x186.png)Why do people hire consultants? They want results.
+![Client + consultant = results. ](Claude/Website/_source/images/image-24-700x186.png)Why do people hire consultants? They want results.
 
 ## A lucrative way to share your expertise—and help others get amazing results
 

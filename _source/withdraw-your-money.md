@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/financial-freedom/automate-scale-your-investments/withdraw-your-money/"
 ---
 
-![](images/image-10.png)This represents the order you should withdraw your money to reduce your tax-burden. Keep reading for details on each step.
+![](Claude/Website/_source/images/image-10.png)This represents the order you should withdraw your money to reduce your tax-burden. Keep reading for details on each step.
 
 ## A simple way to live off your investments, optimized for taxes
 
@@ -38,7 +38,7 @@ Each bucket may include multiple accounts. For example, you may have collected s
 
 Here's a quick visual:
 
-![](images/image-1-700x134.png)The three buckets. Each bucket may include multiple accounts.
+![](Claude/Website/_source/images/image-1-700x134.png)The three buckets. Each bucket may include multiple accounts.
 
 Now that we've covered the basics, let's talk about the fun stuff: spending your money.
 
@@ -46,7 +46,7 @@ Now that we've covered the basics, let's talk about the fun stuff: spending your
 
 Let's say that you make money from an enjoyable hobby or part-time job. Spend that money first. 
 
-![](images/image-7.png)Spend any money earned from fun projects first!
+![](Claude/Website/_source/images/image-7.png)Spend any money earned from fun projects first!
 
 ## Second, spend money from your taxable account(s)
 
@@ -64,7 +64,7 @@ For example, you can access:
 
 Next, sell shares of your investments. Depending on market performance—and perhaps your overall strategy, see the "Other strategies" section further down the page—you'll sell your shares for either a profit or loss. Either way, pull it out.
 
-![](images/image-5.png)Withdraw dividends from your taxable account first, then capital losses and gains.
+![](Claude/Website/_source/images/image-5.png)Withdraw dividends from your taxable account first, then capital losses and gains.
 
 ## Third, spend money from your tax-deferred account(s)
 
@@ -73,7 +73,7 @@ There are a few considerations:
 - You *will* pay a penalty fee for an early withdrawal. For a Traditional IRA or 401(k) there is a 10% penalty fee if you withdraw before 59.5 years old. 
 - You *may* also pay income tax on top of the 10% penalty. Or not. (More on this in the [conversion section](#convert-tax-deferred-income) below.)
 
-![](images/image-9.png)Next, pull money from tax-deferred accounts. Beware of early withdrawal penalties and income tax!
+![](Claude/Website/_source/images/image-9.png)Next, pull money from tax-deferred accounts. Beware of early withdrawal penalties and income tax!
 
 ## Fourth, spend money from your tax-free account(s)
 
@@ -84,7 +84,7 @@ The most common tax-free accounts are a Roth IRA and Health Savings Account (HSA
 - If you *do* have medical expenses that you've paid for out-of-pocket (in the current or any previous year), then pull money from your HSA first.
 - If you *don't* have medical expenses, pull the money from your Roth account first.
 
-![](images/image-10.png)If you have medical expenses, pull money from your Health Savings Account (HSA). If not, pull it from your Roth.
+![](Claude/Website/_source/images/image-10.png)If you have medical expenses, pull money from your Health Savings Account (HSA). If not, pull it from your Roth.
 
 The above strategy is pretty straightforward. To summarize:
 

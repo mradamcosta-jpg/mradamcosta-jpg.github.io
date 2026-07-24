@@ -16,7 +16,7 @@ As your wealth increases, you proceed to the next level. And with each new level
 
 To illustrate this point, look at the chart below:
 
-![The different levels of financial freedom](images/image-16-700x208.png)Financially dependent people (on the left) rely on money from work. Financially independent people (on the right) rely on assets. As you save and invest, you move farther to the right.
+![The different levels of financial freedom](Claude/Website/_source/images/image-16-700x208.png)Financially dependent people (on the left) rely on money from work. Financially independent people (on the right) rely on assets. As you save and invest, you move farther to the right.
 
 As you can see, you make money from:
 

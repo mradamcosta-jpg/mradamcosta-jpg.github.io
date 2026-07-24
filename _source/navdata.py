@@ -63,6 +63,7 @@ SECTIONS = [
         "items": [
             ("/tools/fire-calculator.html", "FIRE calculator"),
             ("/tools/where-to-go.html", "Where to go when"),
+            ("/tools/exhale.html", "Exhale breathing timer"),
         ],
     },
 ]

@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/financial-freedom/strategy/how-much-money-do-i-need-to-retire-at-40/"
 ---
 
-![How much money do I need to retire at 40 (or 60)? This chart shows that you can safely live off 4% of your investment portfolio.](images/image-17-700x484.png)An overly simplified example of the "4% rule." For the juicy details, keep reading.
+![How much money do I need to retire at 40 (or 60)? This chart shows that you can safely live off 4% of your investment portfolio.](Claude/Website/_source/images/image-17-700x484.png)An overly simplified example of the "4% rule." For the juicy details, keep reading.
 
 ## Looking to retire by 40, 50, or 60? Discover how much money you really need to retire with this simple formula
 
@@ -66,7 +66,7 @@ After backtesting each 30-year period, the researchers concluded the following:
 
 The table below shows the success rate for each 30-year span between 1926–2009. 
 
-[![Success rates by withdrawal rate. A 4% withdrawal rate succeeds 100% of the time over a 30-year period.](images/Four-Percent-Rule-Success-Rate-700x556.jpg)](https://adam-costa.com/financial-freedom/strategy/freedom-aint-free-so-how-much-does-it-cost-4-rule-explained/attachment/four-percent-rule-success-rate/)Success rates by withdrawal rate. For example, a 75/25 of stocks/bonds with a 4% withdrawal rate succeeds 100% of the time over a 30-year period. [Source](https://www.onefpa.org/journal/Pages/Portfolio%20Success%20Rates%20Where%20to%20Draw%20the%20Line.aspx).
+[![Success rates by withdrawal rate. A 4% withdrawal rate succeeds 100% of the time over a 30-year period.](Claude/Website/_source/images/Four-Percent-Rule-Success-Rate-700x556.jpg)](https://adam-costa.com/financial-freedom/strategy/freedom-aint-free-so-how-much-does-it-cost-4-rule-explained/attachment/four-percent-rule-success-rate/)Success rates by withdrawal rate. For example, a 75/25 of stocks/bonds with a 4% withdrawal rate succeeds 100% of the time over a 30-year period. [Source](https://www.onefpa.org/journal/Pages/Portfolio%20Success%20Rates%20Where%20to%20Draw%20the%20Line.aspx).
 
 As you can see in the table, if you invested 75% stocks/25% bonds, you'd enjoy a 100%  success rate by withdrawing 4% of the initial amount for 30 years. In all historical cases, you'd have enough money to retire.
 
@@ -202,7 +202,7 @@ Yet despite all this turmoil, the 4% rule not only survived, it *thrived*.
 
 Don't believe me? Take a look at the table below:
 
-[![How much money do you need to retire? This chart provides the median end-of-period portfolio value (assuming a $1,000 initial investment). For example, $1,000 invested in 75% stocks / 25% bonds would grow to $5,968 after 30 years. This means your portfolio would be worth almost 6x its initial value—even after pulling 4% from it for 30 years!](images/Four-Percent-Rule-Median-Balance-700x557.jpg)](https://adam-costa.com/financial-freedom/strategy/freedom-aint-free-so-how-much-does-it-cost-4-rule-explained/attachment/four-percent-rule-median-balance/)Median end-of-period portfolio value (assuming a $1,000 initial investment). For example, $1,000 invested in 75% stocks / 25% bonds would grow to $5,968 after 30 years. Your portfolio would be worth almost 6x its initial value—even after pulling 4% from it for 30 years! [Source](https://www.onefpa.org/journal/Pages/Portfolio%20Success%20Rates%20Where%20to%20Draw%20the%20Line.aspx).
+[![How much money do you need to retire? This chart provides the median end-of-period portfolio value (assuming a $1,000 initial investment). For example, $1,000 invested in 75% stocks / 25% bonds would grow to $5,968 after 30 years. This means your portfolio would be worth almost 6x its initial value—even after pulling 4% from it for 30 years!](Claude/Website/_source/images/Four-Percent-Rule-Median-Balance-700x557.jpg)](https://adam-costa.com/financial-freedom/strategy/freedom-aint-free-so-how-much-does-it-cost-4-rule-explained/attachment/four-percent-rule-median-balance/)Median end-of-period portfolio value (assuming a $1,000 initial investment). For example, $1,000 invested in 75% stocks / 25% bonds would grow to $5,968 after 30 years. Your portfolio would be worth almost 6x its initial value—even after pulling 4% from it for 30 years! [Source](https://www.onefpa.org/journal/Pages/Portfolio%20Success%20Rates%20Where%20to%20Draw%20the%20Line.aspx).
 
 Looking at the table above, you'll see that the median amount for a 75/25 stocks/bond portfolio , after 30 years of withdrawals, has not only survived, it is almost *six times higher* than the initial amount. 
 

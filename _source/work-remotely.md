@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/financial-freedom/how-to-increase-your-income/work-remotely/"
 ---
 
-![Since I chose to work remotely in 2009, I've lived in 32 countries (and counting).](images/image-11-700x360.png)By working remotely, I've been able to live in 32 countries (and counting).
+![Since I chose to work remotely in 2009, I've lived in 32 countries (and counting).](Claude/Website/_source/images/image-11-700x360.png)By working remotely, I've been able to live in 32 countries (and counting).
 
 ## Working remotely cuts your expenses, increases your income, and lets you travel the world
 
@@ -42,7 +42,7 @@ Look, everyone—*everyone*—slacks off at a job at some point. It's inevitable
 
 If you're like most people, your three biggest expenses are housing, taxes, and transportation.
 
-![](images/image-700x607.png)
+![](Claude/Website/_source/images/image-700x607.png)
 
 Let's look at how working remotely saves you big-time in each of these three categories:
 

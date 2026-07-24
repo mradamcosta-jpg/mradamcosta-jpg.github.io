@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/financial-freedom/automate-scale-your-investments/build-wealth-automatically/"
 ---
 
-[![An image showing all the accounts used to automate your investments.](images/image-22-700x397.png)](images/image-22.png)Here's the process to build wealth automatically. You'll build this by the end of this guide.
+[![An image showing all the accounts used to automate your investments.](Claude/Website/_source/images/image-22.png))](images/image-22.png)Here's the process to build wealth automatically. You'll build this by the end of this guide.
 
 ## A step-by-step guide
 
@@ -38,13 +38,13 @@ Let's see how it's done—and get you up and running in an hour (or two).
 
 It all starts with your:
 
-![](images/image-11.png)
+![](Claude/Website/_source/images/image-11.png)
 
 ... and then you contribute to your 401(k) (if applicable).
 
 ### 401(k)
 
-![](images/image-14-700x150.png)
+![](Claude/Website/_source/images/image-14-700x150.png)
 
 How much should you contribute to your 401(k)? There are two answers:
 
@@ -56,7 +56,7 @@ Now set up direct deposit to your bank account.
 
 ### Bank account(s)
 
-![](images/image-16-700x309.png)  
+![](Claude/Website/_source/images/image-16-700x309.png)  
 
 Success. Now your checking account will start fill up with your riches. But you don't want to keep your money there. 
 
@@ -68,7 +68,7 @@ Therefore, set up automatic transfers to your investment account.
 
 ### Investment accounts
 
-![](images/image-17-700x499.png)
+![](Claude/Website/_source/images/image-17-700x499.png)
 
 If your bank account is like your favorite bar—in that it's always open—then your investment account is a walled garden. Visiting hours are brief.
 
@@ -80,7 +80,7 @@ Of course, it's probably not just one account. You may have several accounts in 
 
 - Your taxable accounts.
 
-![](images/image-18-700x555.png)Depending on your situation, you may have just one investment account, or several. The important thing is that you set up the automatic transfer to the brokerage account; you can worry about the number of accounts later.  
+![](Claude/Website/_source/images/image-18-700x555.png)Depending on your situation, you may have just one investment account, or several. The important thing is that you set up the automatic transfer to the brokerage account; you can worry about the number of accounts later.  
 
 **Key point:** by setting up your accounts like the above, you are "paying yourself first."  It's FAR more effective to invest first and live of the remainder, than to spend first and invest the rest. This key point is worth six or seven figures in wealth over a lifetime.
 
@@ -104,7 +104,7 @@ These evil bastards are the most common:
 
 - Stupid subscriptions that should be canceled (e.g. Netflix, TV, Hulu, Amazon, etc.)
 
-![](images/image-19-700x400.png)The vertical line separates your assets (good) with your liabilities (bad). The more you can pile onto the left side, the better.
+![](Claude/Website/_source/images/image-19-700x400.png)The vertical line separates your assets (good) with your liabilities (bad). The more you can pile onto the left side, the better.
 
 Set all recurring bills to auto-pay from your credit card, then autopay your credit card bill from your bank account. 
 
@@ -118,7 +118,7 @@ Two reasons:
 
  Be aware, though, that credit cards are like friends with benefits: it's all well and good—until somebody gets screwed.
 
-![](images/image-20-700x366.png)Pay as many stupid bills through your credit card to get extra cash back and/or frequent flyer miles. Then set your bank account to automatically pay your credit card each month. (Added bonus: since you're paying your credit card off in full every month, you are improving your credit score on autopilot.)  
+![](Claude/Website/_source/images/image-20-700x366.png)Pay as many stupid bills through your credit card to get extra cash back and/or frequent flyer miles. Then set your bank account to automatically pay your credit card each month. (Added bonus: since you're paying your credit card off in full every month, you are improving your credit score on autopilot.)  
 
 Of course, not every monthly expense can be paid through a credit card. Many mortgages, for example, cannot be paid on credit. 
 
@@ -126,7 +126,7 @@ Therefore, pay as many bills as possible, automatically, with your credit card�
 
 See below:
 
-![](images/image-21-700x198.png)Not every stupid bill can be paid by credit card. For those, set up an automatic bill pay from your checking account. 
+![](Claude/Website/_source/images/image-21-700x198.png)Not every stupid bill can be paid by credit card. For those, set up an automatic bill pay from your checking account. 
 
 A word on reducing your bills: 
 
@@ -144,7 +144,7 @@ For all these expenses, use your credit card as much as possible. There are seve
 
 3. You may be able to write off some expenses—such as dining out, entertainment, or gas for your car—for business purposes. Credit cards make it easy to track these (whereas cash makes it nearly impossible).
 
-[![An image showing all the accounts used to automate your investments.](images/image-22-700x397.png)](images/image-22.png)Click the image above to view it full-size. It will open in a separate tab.
+[![An image showing all the accounts used to automate your investments.](Claude/Website/_source/images/image-22.png))](images/image-22.png)Click the image above to view it full-size. It will open in a separate tab.
 
 If you're the adventurous type, listen up: Use credit cards to autopay your bills. Then use frequent flyer points to travel. It also goes great with house sitting (which is featured heavily in the "[reduce your housing expenses](https://adam-costa.com/financial-freedom/reduce-expenses/housing/)" article).
 
@@ -174,4 +174,4 @@ If you'd like a separate saving account, simply create a monthly auto-transfer f
 
 For example:
 
-![](images/image-23-700x339.png)Each month, your checking account automatically puts money into your second savings account, which can be used for a one-time purchase like a wedding, big trip, or down payment on a house.
+![](Claude/Website/_source/images/image-23-700x339.png)Each month, your checking account automatically puts money into your second savings account, which can be used for a one-time purchase like a wedding, big trip, or down payment on a house.

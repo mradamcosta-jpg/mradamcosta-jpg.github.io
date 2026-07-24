@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/productivity-course/chapter-5-build-rock-solid-routines/"
 ---
 
-![A sign saying "work harder."](images/image-6-700x353.png)Building rock-solid routines make hard work feel easy. (Source: Photo by [Jordan Whitfield](https://unsplash.com/@whitfieldjordan?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).)
+![A sign saying "work harder."](Claude/Website/_source/images/image-6-700x353.png)Building rock-solid routines make hard work feel easy. (Source: Photo by [Jordan Whitfield](https://unsplash.com/@whitfieldjordan?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).)
 
 ## How to build rock-solid routines and achieve your goals on near-autopilot
 

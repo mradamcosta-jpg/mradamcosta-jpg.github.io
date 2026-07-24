@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/productivity-course/chapter-2-pinpoint-and-prioritize-your-goals/"
 ---
 
-![Your board game of life](images/10xlifetrello5.png)You'll build this by the end of this chapter.
+![Your board game of life](Claude/Website/_source/images/10xlifetrello5.png)You'll build this by the end of this chapter.
 
 ## How to map out your dreams, turn your life into a game, and gain a crystal-clear vision of what you want in life
 
@@ -159,7 +159,7 @@ We’ll talk about Trello—and how it will help you get 10x results—in subseq
 
 Here’s what it looks like:
 
-![](images/10xlifetrello1.png)
+![](Claude/Website/_source/images/10xlifetrello1.png)
 
 Here’s what you need to do next:
 
@@ -180,7 +180,7 @@ Each column could have between 3–10 cards (Trello’s term, not mine), each re
 
 Here’s what mine looks like:
 
-![](images/10xlifetrello2.png)
+![](Claude/Website/_source/images/10xlifetrello2.png)
 
 As you can see, you can add images, too. **Do this.** The visual makes it more “real” to you—and therefore, it’ll stick in your subconscious longer.
 
@@ -188,7 +188,7 @@ Now go through each column, and add at least three cards to each column.
 
 Here’s my updated board, with goals and pictures:
 
-![](images/10xlifetrello3.png)
+![](Claude/Website/_source/images/10xlifetrello3.png)
 
 Boom. Notice anything about the pictures?
 
@@ -237,7 +237,7 @@ For example, in the “*Where do I want to go*” column I listed *Japan*, *Anta
 
 Here’s how I moved my cards around:
 
-![](images/10xlifetrello4.png)
+![](Claude/Website/_source/images/10xlifetrello4.png)
 
 ## The endgame
 
@@ -248,7 +248,7 @@ OK, two more quick steps and we’re done.
 
 Here’s my final board:
 
-![](images/10xlifetrello5.png)
+![](Claude/Website/_source/images/10xlifetrello5.png)
 
 As you can see, writing a book earned the top spot, followed by writing a bestselling book.
 

@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/financial-freedom/automate-scale-your-investments/investment-order/"
 ---
 
-![The seven steps to invest your money in. Text versions are further down the page.](images/image-25.png)
+![The seven steps to invest your money in. Text versions are further down the page.](Claude/Website/_source/images/image-25.png)
 
 ## A seven-step checklist to maximize your returns
 

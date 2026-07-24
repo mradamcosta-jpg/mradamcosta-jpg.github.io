@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/productivity-course/chapter-6-block-distractions/"
 ---
 
-![](images/image-7-700x435.png)(Source: Photo by [Oscar Keys](https://unsplash.com/@oscartothekeys?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).)
+![](Claude/Website/_source/images/image-7-700x435.png)(Source: Photo by [Oscar Keys](https://unsplash.com/@oscartothekeys?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).)
 
 ## The crippling effects of distraction—and how to prevent them
 

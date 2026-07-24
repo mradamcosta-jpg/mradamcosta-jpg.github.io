@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/productivity-course/chapter-3-optimize-your-workflow/"
 ---
 
-![your own personal kanban board to help optimize your workflow](images/10xlifegame6.png)Here's an example of a kanban board to help optimize your workflow. You'll build one of these by the end of this chapter.
+![your own personal kanban board to help optimize your workflow](Claude/Website/_source/images/10xlifegame6.png)Here's an example of a kanban board to help optimize your workflow. You'll build one of these by the end of this chapter.
 
 ## An easy, effective way to track your goals—and achieve them
 
@@ -80,7 +80,7 @@ Let’s review each column.
 
 Here’s what the Kanban looks like:
 
-![](images/10xlifegame.png)
+![](Claude/Website/_source/images/10xlifegame.png)
 
 We’ll use Trello for this example. (As I mentioned in the last chapter, you can also use Post-It notes, though I suggest Trello because it’s free, easy, and portable. Get the Trello screenshots and templates on the [Resources page](https://adam-costa.com/productivity-course/additional-resources/).
 
@@ -227,7 +227,7 @@ Remember, **move only your highest priority cards—the first column in your Boa
 
 Alright, your kanban should look something like this:
 
-![](images/10xlifegame2.png)
+![](Claude/Website/_source/images/10xlifegame2.png)
 
 Nice work. Now, for each card in Trello, **rewrite your goal so that it is specific, measurable, attainable, realistic, and timely**. For the “timely” bit, set a due date within Trello.
 
@@ -258,7 +258,7 @@ Here's how to do it:
 
 Your kanban should now look like this:
 
-![](images/10xlifegame3.png)
+![](Claude/Website/_source/images/10xlifegame3.png)
 
 *Quick note:* see how the cards from my Board Game of Life have pictures, while the “crap I don’t want to do” cards don’t? Don’t spend time visualizing stuff you don’t want to do; put the cards in your backlog as text-only and get on with your day.
 
@@ -266,7 +266,7 @@ Your kanban should now look like this:
 
 Here’s your updated kanban:
 
-![](images/10xlifegame4.png)
+![](Claude/Website/_source/images/10xlifegame4.png)
 
 *Quick note:* there are likely several items in your backlog you need to do—but don't want to. That sucks, I know, but it’s okay. Move those devils into the “To-Do” column.
 
@@ -288,7 +288,7 @@ Keep in mind: each of these project-specific kanbans will go away once you finis
 
 For example, here's what my kanban looks like for this course:
 
-![](images/10xlifegame5.png)
+![](Claude/Website/_source/images/10xlifegame5.png)
 
 In the above example, notice how I've broken it down into individual chapters, added due dates for each, and created new columns specific to the book-writing process.
 
@@ -311,11 +311,11 @@ For your own projects, set up the columns however you wish; in my example, the c
 
 **Let’s tie this all together.** I have my master kanban, which looks like this:
 
-![](images/10xlifegame6.png)
+![](Claude/Website/_source/images/10xlifegame6.png)
 
 And in the “Doing” column I have “write a book about how to 10x your life.” Since that’s a big goal that contains several smaller goals, I’ve created a separate kanban for the book, which looks like this:
 
-![](images/10xlifegame7.png)
+![](Claude/Website/_source/images/10xlifegame7.png)
 
 The “book kanban” will disappear when I finish the book. Since you’re reading this book now, you can safely assume this kanban has been terminated.
 

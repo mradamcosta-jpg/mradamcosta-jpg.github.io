@@ -8,7 +8,7 @@ original_url: "https://adam-costa.com/?page_id=142"
 
 In today’s lesson, you're going to prioritize your goals in Trello, finalize your board game of life, and wrap up module 2 “Map Out Life."
 
-## ![](images/presentation.png) Video Lesson
+## ![](presentation.png) Video Lesson
 
  	
 - **Time**: 4:33

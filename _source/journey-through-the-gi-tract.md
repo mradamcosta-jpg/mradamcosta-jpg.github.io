@@ -14,7 +14,7 @@ Ham and Swiss on rye is, well, one of the best things ever.
 
 So we'll use this sandwich to track the digestive system. In this digestive adventure, the sandwich will be our hero.
 
-![](images/ham-swiss-rye-700x525.jpeg)In this article, we'll track a ham and Swiss on rye sandwich through the digestive tract, with a focus on the key macronutrients: carbohydrate, protein, and fat.
+![](Claude/Website/_source/images/ham-swiss-rye-700x525.jpeg)In this article, we'll track a ham and Swiss on rye sandwich through the digestive tract, with a focus on the key macronutrients: carbohydrate, protein, and fat.
 
 Warning: This post is a work-in-progress. I'll continue to update it weekly, but for now, please excuse the mess.
 

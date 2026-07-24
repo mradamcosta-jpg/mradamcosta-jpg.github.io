@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adam's tools</title>
+<style>
+  :root { --bg:#fafaf8; --fg:#1a1a1a; --muted:#666; --card:#fff; --border:#e2e2dd; --accent:#2f6f4f; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#151517; --fg:#e8e8e6; --muted:#9a9a97; --card:#1e1e21; --border:#2e2e33; --accent:#6fbf94; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--bg); color:var(--fg); line-height:1.6; }
+  main { max-width:640px; margin:0 auto; padding:48px 20px; }
+  h1 { font-size:1.7rem; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 32px; }
+  .card { display:block; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:14px; text-decoration:none; color:var(--fg); transition:border-color .15s; }
+  .card:hover { border-color:var(--accent); }
+  .card h2 { font-size:1.05rem; margin:0 0 4px; color:var(--accent); }
+  .card p { margin:0; font-size:.92rem; color:var(--muted); }
+  footer { margin-top:40px; font-size:.8rem; color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Adam's tools</h1>
+  <p class="sub">Small, self-contained things that live in the browser.</p>
+
+  <a class="card" href="fire-calculator.html">
+    <h2>FIRE calculator</h2>
+    <p>Safe withdrawal rate, portfolio projections, and how long the money lasts.</p>
+  </a>
+
+  <a class="card" href="where-to-go.html">
+    <h2>Where to go when</h2>
+    <p>460+ destinations filtered by month, activity and region&mdash;find places at their seasonal best.</p>
+  </a>
+
+  <a class="card" href="exhale.html">
+    <h2>Exhale &mdash; breathing timer</h2>
+    <p>A slow-breathing pacer (4&middot;6 / 4&middot;8) for lower blood pressure via baroreflex training. Pops out to float over your work.</p>
+  </a>
+
+  <footer>Built in an Obsidian vault, published with GitHub Pages.</footer>
+</main>
+</body>
+</html>

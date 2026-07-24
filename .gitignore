@@ -1,1 +1,4 @@
 .DS_Store
+
+# Tools now live in this same repo (Website/tools/) and publish with the site.
+# The private working note stays out via Website/tools/.gitignore.

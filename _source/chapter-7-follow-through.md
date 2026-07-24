@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/productivity-course/chapter-7-follow-through/"
 ---
 
-![](images/10xlifeifthen.png)This simple technique instantly blocks distractions and boosts productivity. Keep reading to find out how.
+![](Claude/Website/_source/images/10xlifeifthen.png)This simple technique instantly blocks distractions and boosts productivity. Keep reading to find out how.
 
 ## How to finish what you start—by getting high
 
@@ -301,7 +301,7 @@ So, for example:
 
 Print and fill in this nifty “If_____, then I don’t ______.” reminder and hang it somewhere visible.
 
-![](images/10xlifeifthen.png)
+![](Claude/Website/_source/images/10xlifeifthen.png)
 
 Remember, you can get this resource (and countless others) on the [Resources page](https://adam-costa.com/productivity-course/additional-resources/).
 

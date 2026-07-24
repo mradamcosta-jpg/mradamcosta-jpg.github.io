@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where to go when</title>
+<style>
+  :root { --bg:#fafaf8; --fg:#1a1a1a; --muted:#666; --card:#fff; --border:#e2e2dd; --accent:#2f6f4f; --accent-soft:#e8f2ec; --chip:#f0f0ec; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#151517; --fg:#e8e8e6; --muted:#9a9a97; --card:#1e1e21; --border:#2e2e33; --accent:#6fbf94; --accent-soft:#213a2e; --chip:#26262b; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--bg); color:var(--fg); line-height:1.6; }
+  main { max-width:1060px; margin:0 auto; padding:40px 20px 64px; }
+  h1 { font-size:1.7rem; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 24px; }
+  a.home { color:var(--muted); font-size:.85rem; text-decoration:none; }
+  a.home:hover { color:var(--accent); }
+
+  .controls { position:sticky; top:0; background:var(--bg); padding:12px 0 14px; z-index:5; border-bottom:1px solid var(--border); margin-bottom:20px; }
+  .row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:10px; }
+  .row:last-child { margin-bottom:0; }
+  .row-label { font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); width:100%; margin-bottom:-2px; }
+
+  .chip { border:1px solid var(--border); background:var(--chip); color:var(--fg); border-radius:999px; padding:5px 13px; font-size:.85rem; cursor:pointer; transition:all .12s; font-family:inherit; }
+  .chip:hover { border-color:var(--accent); }
+  .chip.on { background:var(--accent); border-color:var(--accent); color:#fff; }
+  @media (prefers-color-scheme: dark) { .chip.on { color:#10160f; } }
+
+  select, input[type="search"] { border:1px solid var(--border); background:var(--card); color:var(--fg); border-radius:8px; padding:7px 10px; font-size:.9rem; font-family:inherit; }
+  input[type="search"] { flex:1; min-width:160px; }
+  select:focus, input:focus { outline:none; border-color:var(--accent); }
+
+  .count { font-size:.85rem; color:var(--muted); margin:0 0 16px; }
+  .count b { color:var(--fg); }
+
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:14px; }
+  .dest { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px 18px; transition:border-color .15s; }
+  .dest:hover { border-color:var(--accent); }
+  .dest h2 { font-size:1.02rem; margin:0; color:var(--accent); }
+  .dest .where { font-size:.8rem; color:var(--muted); margin:1px 0 8px; }
+  .dest .tags { display:flex; flex-wrap:wrap; gap:5px; margin:0 0 9px; }
+  .tag { font-size:.68rem; background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:2px 9px; text-transform:uppercase; letter-spacing:.03em; }
+  .dest p.desc { margin:0 0 8px; font-size:.88rem; }
+  .dest p.why { margin:0; font-size:.82rem; color:var(--muted); font-style:italic; }
+  .dest p.why b { color:var(--accent); font-style:normal; font-weight:600; }
+  .months { font-size:.72rem; color:var(--muted); margin-top:9px; letter-spacing:.06em; }
+  .months span.hit { color:var(--accent); font-weight:700; }
+
+  .empty { text-align:center; color:var(--muted); padding:60px 0; }
+  .more-wrap { text-align:center; margin-top:24px; }
+  .more { border:1px solid var(--border); background:var(--card); color:var(--fg); border-radius:8px; padding:9px 22px; font-size:.9rem; cursor:pointer; font-family:inherit; }
+  .more:hover { border-color:var(--accent); }
+  footer { margin-top:40px; font-size:.8rem; color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <a class="home" href="index.html">&larr; Adam's tools</a>
+  <h1>Where to go when</h1>
+  <p class="sub">Pick a month and what you're in the mood for—get the places at their best right then.</p>
+
+  <div class="controls">
+    <div class="row" id="monthRow">
+      <span class="row-label">Month</span>
+      <button class="chip" data-m="0">Any</button>
+    </div>
+    <div class="row" id="actRow">
+      <span class="row-label">Activity</span>
+      <button class="chip on" data-a="all">Everything</button>
+    </div>
+    <div class="row">
+      <select id="regionSel"><option value="">All regions</option></select>
+      <input type="search" id="q" placeholder="Search places or countries&hellip;">
+      <button class="chip" id="reset">Reset</button>
+    </div>
+  </div>
+
+  <p class="count" id="count"></p>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" hidden>Nothing matches—try another month or fewer filters.</div>
+  <div class="more-wrap"><button class="more" id="more" hidden>Show more</button></div>
+
+  <footer id="foot"></footer>
+</main>
+
+<script src="where-to-go-data.js"></script>
+<script>
+(function(){
+  const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const MSHORT = ["J","F","M","A","M","J","J","A","S","O","N","D"];
+  const ACTIVITIES = {
+    city:      "City & culture",
+    outdoors:  "Outdoors & adventure",
+    beach:     "Beach & islands",
+    food:      "Food & drink",
+    wildlife:  "Wildlife & nature",
+    festival:  "Festivals & events",
+    snow:      "Winter & snow",
+    wellness:  "Wellness & relaxation"
+  };
+  const PAGE = 48;
+
+  const D = (window.DESTINATIONS || []);
+  const monthRow = document.getElementById("monthRow");
+  const actRow = document.getElementById("actRow");
+  const regionSel = document.getElementById("regionSel");
+  const q = document.getElementById("q");
+  const grid = document.getElementById("grid");
+  const countEl = document.getElementById("count");
+  const emptyEl = document.getElementById("empty");
+  const moreBtn = document.getElementById("more");
+
+  // Build month chips (1-12), default to current month
+  MONTHS.forEach((name, i) => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.dataset.m = i + 1; b.textContent = name.slice(0,3);
+    b.title = name;
+    monthRow.appendChild(b);
+  });
+
+  // Build activity chips
+  Object.entries(ACTIVITIES).forEach(([key, label]) => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.dataset.a = key; b.textContent = label;
+    actRow.appendChild(b);
+  });
+
+  // Build region options
+  [...new Set(D.map(d => d.r))].sort().forEach(r => {
+    const o = document.createElement("option");
+    o.value = r; o.textContent = r;
+    regionSel.appendChild(o);
+  });
+
+  let state = { month: new Date().getMonth() + 1, acts: new Set(), region: "", q: "", shown: PAGE };
+
+  function syncChips() {
+    monthRow.querySelectorAll(".chip").forEach(c => c.classList.toggle("on", +c.dataset.m === state.month));
+    actRow.querySelectorAll(".chip").forEach(c => {
+      if (c.dataset.a === "all") c.classList.toggle("on", state.acts.size === 0);
+      else c.classList.toggle("on", state.acts.has(c.dataset.a));
+    });
+  }
+
+  function matches(d) {
+    if (state.month && !d.m.includes(state.month)) return false;
+    if (state.acts.size && ![...state.acts].some(a => d.a.includes(a))) return false;
+    if (state.region && d.r !== state.region) return false;
+    if (state.q) {
+      const hay = (d.n + " " + d.c + " " + d.r).toLowerCase();
+      if (!hay.includes(state.q)) return false;
+    }
+    return true;
+  }
+
+  function monthStrip(d) {
+    return MSHORT.map((s, i) =>
+      d.m.includes(i + 1)
+        ? '<span class="hit">' + s + "</span>"
+        : "<span>" + s + "</span>"
+    ).join(" ");
+  }
+
+  function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;"); }
+
+  function render() {
+    syncChips();
+    const hits = D.filter(matches);
+    const slice = hits.slice(0, state.shown);
+    grid.innerHTML = slice.map(d => {
+      const tags = d.a.map(a => '<span class="tag">' + (ACTIVITIES[a] || a).split(" &")[0] + "</span>").join("");
+      const why = d.w ? '<p class="why"><b>Why then:</b> ' + esc(d.w) + "</p>" : "";
+      return '<div class="dest"><h2>' + esc(d.n) + '</h2>' +
+        '<div class="where">' + esc(d.c) + " &middot; " + esc(d.r) + "</div>" +
+        '<div class="tags">' + tags + "</div>" +
+        '<p class="desc">' + esc(d.d) + "</p>" + why +
+        '<div class="months">' + monthStrip(d) + "</div></div>";
+    }).join("");
+    emptyEl.hidden = hits.length > 0;
+    moreBtn.hidden = hits.length <= state.shown;
+    const mLabel = state.month ? " in <b>" + MONTHS[state.month - 1] + "</b>" : "";
+    countEl.innerHTML = "<b>" + hits.length + "</b> of " + D.length + " destinations" + mLabel;
+  }
+
+  monthRow.addEventListener("click", e => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    state.month = +b.dataset.m; state.shown = PAGE; render();
+  });
+  actRow.addEventListener("click", e => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    if (b.dataset.a === "all") state.acts.clear();
+    else state.acts.has(b.dataset.a) ? state.acts.delete(b.dataset.a) : state.acts.add(b.dataset.a);
+    state.shown = PAGE; render();
+  });
+  regionSel.addEventListener("change", () => { state.region = regionSel.value; state.shown = PAGE; render(); });
+  q.addEventListener("input", () => { state.q = q.value.trim().toLowerCase(); state.shown = PAGE; render(); });
+  document.getElementById("reset").addEventListener("click", () => {
+    state = { month: new Date().getMonth() + 1, acts: new Set(), region: "", q: "", shown: PAGE };
+    regionSel.value = ""; q.value = ""; render();
+  });
+  moreBtn.addEventListener("click", () => { state.shown += PAGE; render(); });
+
+  document.getElementById("foot").textContent =
+    D.length + " destinations. To add more, edit where-to-go-data.js—each entry is one small block.";
+
+  render();
+})();
+</script>
+</body>
+</html>

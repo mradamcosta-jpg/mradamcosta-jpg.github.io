@@ -38,7 +38,7 @@ Here's my experience with a sleep study:
 
 I went to the sleep center and picked up the the sleep test machine. Then, before bed you hook this contraption to your face. 
 
-![sleep machine](images/image-1-700x435.png)Sexy, right?
+![sleep machine](Claude/Website/_source/images/image-1-700x435.png)Sexy, right?
 
 OK, so it's not as bad as an Iron Maiden—but it still ain't fun. You've got tape over your face, tubes in your nose, and what feels like a defibrillator strapped to your chest.
 
@@ -60,7 +60,7 @@ This was a game-changer. While it does include the basics you find online—avoi
 
 In a nutshell, here's what it looks like:
 
-![](images/image-700x367.png)[Source](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7999422/).
+![](Claude/Website/_source/images/image-700x367.png)[Source](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7999422/).
 
 Looking at the image above, we see there is a LOT to work on. You start with sleep hygiene education, stimulus-control, sleep restriction, relaxation training, and then move on to cognitive therapy.
 

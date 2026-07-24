@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/financial-freedom/how-to-increase-your-income/ask-for-a-raise/"
 ---
 
-![](images/image-21-700x254.png)
+![](Claude/Website/_source/images/image-21-700x254.png)
 
 ## The two fastest (and most uncomfortable) ways to increase your income
 
@@ -133,7 +133,7 @@ That sounds harsh, I know. But it goes back to the notion of value. And if you'r
 
 Therefore, a healthy way to think about your raise is ask yourself: "For every dollar I'm asking for, how can I demonstrate it will make my employer $4?". Asking yourself this question forces you to think of terms of value; it will also prevent you from wasting time on things that don't matter.
 
-![](images/image-10_1.png)The easiest, most effective way to ask for a raise.
+![](Claude/Website/_source/images/image-10_1.png)The easiest, most effective way to ask for a raise.
 
 The following process ensures you are working on what matters most, and that your employer will recognize you for your results. 
 
@@ -181,7 +181,7 @@ Lastly, you've scheduled the call for early in the day. There are two benefits.
 
 Lastly, you've already got your first "yes." Studies show that you can build on these initial agreements, and walk people up the "yes ladder."
 
-![](images/image-2-700x500.png)The "Yes ladder." Get a small yes first, then keep asking for bigger and better.
+![](Claude/Website/_source/images/image-2-700x500.png)The "Yes ladder." Get a small yes first, then keep asking for bigger and better.
 
 ### Use this simple 3-step strategy to win your raise (and breeze through other tough conversations) 
 
@@ -202,7 +202,7 @@ In this step you need to demonstrate your current value, based on your past achi
 
 So you start with this:
 
-![](images/image-7-700x383.png)In step 1, list everything you were hired to do, and how you've met those expectations.
+![](Claude/Website/_source/images/image-7-700x383.png)In step 1, list everything you were hired to do, and how you've met those expectations.
 
 In the above, you highlight what you were hired to do. This is important. Rather than ask for a raise right away, show your boss your original job description and highlight everything else you do. (If you're like most people, what you actually do is very different than what you were hired for.) 
 
@@ -210,7 +210,7 @@ In the above, you highlight what you were hired to do. This is important. Rather
 
 In step 1 you talked about what you were hired to do; now, in step 2,  you play up all the other stuff you've done. Like so:
 
-![](images/image-9-700x379.png)In step 2, you highlight how much extra stuff you do.
+![](Claude/Website/_source/images/image-9-700x379.png)In step 2, you highlight how much extra stuff you do.
 
 This approach demonstrates your current value. It sets a strong foundation that your employer will agree with, since they've already gone through the table with you. It also shows that you're already at a more senior level—and should be paid accordingly.
 
@@ -227,7 +227,7 @@ Go through each item and explain how you've met—and exceeded—expectations. (
 
 Of course, you need to back up the "senior role" with data. Use the BLS or PayScale to show what someone earns  based on what you're currently doing (and not what you've been hired for). This proves each of your claims and builds momentum.
 
-![](images/image-6-700x375.png)
+![](Claude/Website/_source/images/image-6-700x375.png)
 
 Say the following: "Going forward, I'd like three things: a 11% pay increase, the ability to work from home full-time, and a performance bonus if I also achieve X, Y, and Z."
 
@@ -235,7 +235,7 @@ There are two important tactics used.
 
 **First**, notice how you're asking for three things rather than one. This really opens up the negotiating table because your employer can choose 1–3 items to counter on. And the best is, each of those items are negotiable as well. This approach opens you up to lots of opportunities, opportunities you may not have realized was possible until you ask. For example, some companies are very open to remote work; others aren't. So it pays to ask. (We'll cover the different types of things you can ask for in just a moment.)
 
-![](images/image-3-700x251.png)Ask for three things rather than one. This opens up the conversation and helps you negotiate on multiple fronts.
+![](Claude/Website/_source/images/image-3-700x251.png)Ask for three things rather than one. This opens up the conversation and helps you negotiate on multiple fronts.
 
 **Second**, you're including specific numbers (11%, "full-time"). This shows your boss you've done your homework and know exactly what you want. With each number, you put your foot on the ground and say "This is exactly what I want"—which works a hell of a lot better than "Can I have a raise please?"  
 
@@ -243,11 +243,11 @@ In addition "knowing your worth", using specific numbers allow you to negotiate 
 
 To illustrate, do this:
 
-![](images/image-5-700x267.png)This approach has three positive outcomes. 
+![](Claude/Website/_source/images/image-5-700x267.png)This approach has three positive outcomes. 
 
 ... instead of this:
 
-![](images/image-4-700x255.png)This approach has one positive and one negative outcome. 
+![](Claude/Website/_source/images/image-4-700x255.png)This approach has one positive and one negative outcome. 
 
 #### Putting the three steps together
 
@@ -301,11 +301,11 @@ If your boss says no, citing budget, don't give up.  Say something along the lin
 
 Rather than taking that first "no" negotiate all three items. So you start from this:
 
-![](images/image-700x272.png)
+![](Claude/Website/_source/images/image-700x272.png)
 
 ... and negotiate your other two ideas. Who knows? You may "only" walk away with the ability to [work remotely](https://adam-costa.com/financial-freedom/how-to-increase-your-income/work-remotely/) 2 days a week, and a 5% performance  bonus. 
 
-![](images/image-1-700x263.png)
+![](Claude/Website/_source/images/image-1-700x263.png)
 
 Not bad, huh? 
 

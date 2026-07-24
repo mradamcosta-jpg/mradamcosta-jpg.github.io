@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/productivity-course/introduction-what-youll-get-in-this-course/"
 ---
 
-![](images/image-4-700x386.png)Ready to start? (Photo by [Jukan Tateisi](https://unsplash.com/@tateisimikito?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).)
+![](Claude/Website/_source/images/image-4-700x386.png)Ready to start? (Photo by [Jukan Tateisi](https://unsplash.com/@tateisimikito?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).)
 
 ## What this book is about, and why it will change your life
 

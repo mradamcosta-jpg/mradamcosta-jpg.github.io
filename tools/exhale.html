@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>exhale · slow-breathing timer</title>
+<style>
+  :root {
+    --bg-dark: #0f2438;
+    --bg-mid: #1a3a52;
+    --accent-light: #a8d5e8;
+    --accent-mid: #7aa8c4;
+    --text: #e8f2f8;
+    --color-in: #a8d5e8;
+    --color-out: #a8dcba;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-dark);
+    color: var(--text);
+    font-family: Georgia, serif;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+  }
+  /* ---- the floating timer widget (unchanged behaviour) ---- */
+  #main {
+    width: 340px;
+    height: 160px;
+    margin: 40px 0 8px;
+    background: linear-gradient(180deg, var(--bg-mid), var(--bg-dark));
+    border-radius: 10px;
+    border: 1px solid rgba(122, 168, 196, 0.15);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .breath-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .pill-wrap {
+    width: 260px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pill {
+    width: 260px;
+    height: 22px;
+    background: linear-gradient(90deg, var(--accent-mid), var(--accent-light), var(--accent-mid));
+    border-radius: 11px;
+    transform-origin: center;
+    box-shadow: 0 0 22px rgba(168, 213, 232, 0.35);
+    will-change: transform, opacity;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  [data-mode="46"] .pill {
+    animation-name: breathe-46;
+    animation-duration: 10s;
+  }
+  [data-mode="48"] .pill {
+    animation-name: breathe-48;
+    animation-duration: 12s;
+  }
+  @keyframes breathe-46 {
+    0%   { transform: scaleX(0.12); opacity: 0.55; filter: hue-rotate(0deg); }
+    40%  { transform: scaleX(1.00); opacity: 1.00; filter: hue-rotate(0deg); }
+    41%  { transform: scaleX(0.985); opacity: 0.99; filter: hue-rotate(-70deg); }
+    100% { transform: scaleX(0.12); opacity: 0.55; filter: hue-rotate(-70deg); }
+  }
+  @keyframes breathe-48 {
+    0%      { transform: scaleX(0.12); opacity: 0.55; filter: hue-rotate(0deg); }
+    33.33%  { transform: scaleX(1.00); opacity: 1.00; filter: hue-rotate(0deg); }
+    34.33%  { transform: scaleX(0.987); opacity: 0.99; filter: hue-rotate(-70deg); }
+    100%    { transform: scaleX(0.12); opacity: 0.55; filter: hue-rotate(-70deg); }
+  }
+  .label {
+    position: relative;
+    width: 80px;
+    height: 20px;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--accent-light);
+    letter-spacing: 6px;
+    opacity: 0.9;
+    text-align: center;
+  }
+  .label-in, .label-out {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1, end);
+  }
+  .label-in { color: var(--color-in); }
+  .label-out { color: var(--color-out); }
+  [data-mode="46"] .label-in {
+    animation-name: label-in-46;
+    animation-duration: 10s;
+  }
+  [data-mode="46"] .label-out {
+    animation-name: label-out-46;
+    animation-duration: 10s;
+  }
+  [data-mode="48"] .label-in {
+    animation-name: label-in-48;
+    animation-duration: 12s;
+  }
+  [data-mode="48"] .label-out {
+    animation-name: label-out-48;
+    animation-duration: 12s;
+  }
+  @keyframes label-in-46 {
+    0%   { opacity: 1; }
+    40%  { opacity: 0; }
+    100% { opacity: 0; }
+  }
+  @keyframes label-out-46 {
+    0%   { opacity: 0; }
+    40%  { opacity: 1; }
+    100% { opacity: 1; }
+  }
+  @keyframes label-in-48 {
+    0%     { opacity: 1; }
+    33.33% { opacity: 0; }
+    100%   { opacity: 0; }
+  }
+  @keyframes label-out-48 {
+    0%     { opacity: 0; }
+    33.33% { opacity: 1; }
+    100%   { opacity: 1; }
+  }
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--accent-mid);
+  }
+  .toggle {
+    display: flex;
+    gap: 3px;
+    user-select: none;
+    font-family: Georgia, serif;
+  }
+  .toggle span {
+    padding: 3px 9px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    font-size: 11px;
+  }
+  .toggle span.active {
+    background: rgba(168, 213, 232, 0.18);
+    color: var(--text);
+  }
+  .toggle span:hover:not(.active) {
+    background: rgba(168, 213, 232, 0.08);
+  }
+  .popout {
+    cursor: pointer;
+    color: var(--accent-mid);
+    background: transparent;
+    border: 1px solid rgba(122, 168, 196, 0.35);
+    border-radius: 3px;
+    padding: 3px 10px;
+    font-family: Georgia, serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+  }
+  .popout:hover {
+    background: rgba(168, 213, 232, 0.12);
+    color: var(--text);
+    border-color: var(--accent-light);
+  }
+  .placeholder {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-mid);
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 3px;
+    opacity: 0.5;
+  }
+  /* ---- the write-up below the timer ---- */
+  .hint {
+    color: var(--accent-mid);
+    font-size: 12px;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+  }
+  article {
+    max-width: 620px;
+    width: 100%;
+    padding: 0 22px 72px;
+    line-height: 1.65;
+  }
+  article h1 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin: 12px 0 4px;
+    color: var(--accent-light);
+  }
+  article h2 {
+    font-size: 1.1rem;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    margin: 34px 0 8px;
+    color: var(--accent-light);
+    border-bottom: 1px solid rgba(122, 168, 196, 0.18);
+    padding-bottom: 6px;
+  }
+  article p { margin: 12px 0; color: var(--text); }
+  article a { color: var(--color-out); }
+  .lede { color: var(--accent-mid); font-style: italic; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(122, 168, 196, 0.18);
+    vertical-align: top;
+  }
+  th { color: var(--accent-light); font-weight: normal; }
+  .callout {
+    background: rgba(168, 220, 186, 0.08);
+    border: 1px solid rgba(168, 220, 186, 0.28);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 20px 0;
+  }
+  .callout strong { color: var(--color-out); }
+  .refs { font-size: 0.82rem; color: var(--accent-mid); }
+  .refs li { margin: 6px 0; }
+  .disclaimer { font-size: 0.8rem; color: var(--accent-mid); font-style: italic; margin-top: 30px; }
+  .back { display: inline-block; margin: 4px 0 0; font-size: 0.85rem; color: var(--accent-mid); }
+</style>
+</head>
+<body>
+<div id="main">
+  <div class="breath-area" id="breath" data-mode="46">
+    <div class="pill-wrap"><div class="pill"></div></div>
+    <div class="label">
+      <span class="label-in">in</span>
+      <span class="label-out">out</span>
+    </div>
+  </div>
+  <div class="controls">
+    <div class="toggle" id="toggle">
+      <span data-pattern="46" class="active">4·6</span>
+      <span data-pattern="48">4·8</span>
+    </div>
+    <button class="popout" id="popout">pop out ⇱</button>
+  </div>
+</div>
+<div class="hint">breathe in as the bar grows, out as it shrinks</div>
+
+<article>
+  <h1>exhale — a slow-breathing timer for blood pressure</h1>
+  <p class="lede">A quiet pacer for the one breathing pattern with real evidence behind it: slow, and with a long exhale.</p>
+
+  <h2>What it is</h2>
+  <p>Watch the bar, not the clock. It swells while you breathe in and shrinks while you breathe out — that is the whole instruction. Two speeds are on offer, and both are deliberately slower than the ten-to-fifteen breaths a minute most of us take without thinking:</p>
+  <table>
+    <tr><th>Pattern</th><th>In</th><th>Out</th><th>Speed</th></tr>
+    <tr><td>4·6</td><td>4 seconds</td><td>6 seconds</td><td>6 breaths per minute</td></tr>
+    <tr><td>4·8</td><td>4 seconds</td><td>8 seconds</td><td>5 breaths per minute</td></tr>
+  </table>
+  <p>The long exhale is the active ingredient, not an accident. Start with 4·6; if that feels easy and you want to lean in further, switch to 4·8. Tap either label under the bar to change.</p>
+
+  <h2>How it works — the baroreflex, in plain language</h2>
+  <p>Your body has a built-in cruise control for blood pressure called the baroreflex. Think of the thermostat on a wall: sensors in the walls of your big arteries constantly read the pressure and nudge your heart rate and vessel tightness up or down to hold a set point, second by second.</p>
+  <p>Here is the useful quirk. Your blood pressure isn't flat — it rises a touch when you breathe in and eases when you breathe out, like a swing rocking back and forth. When you slow your breathing to about six breaths a minute, that swing lines up with the body's own slow pressure wave (physiologists call it the Mayer wave). It's the difference between shoving a playground swing at random moments versus pushing exactly in time — push in rhythm and the same effort moves the swing far more. Breathing in that rhythm gives the baroreflex a bigger, cleaner signal to work with, and over weeks the reflex gets more sensitive and better at keeping pressure down.</p>
+  <p>The long exhale does a second job. Breathing out slowly leans on the "rest and digest" side of your nervous system — the brake pedal, as opposed to the fight-or-flight accelerator. That dials down the background nervous-system "tone" that keeps vessels tight, which is a big part of what sets resting pressure. Same reason a long sigh makes you feel your shoulders drop.</p>
+
+  <h2>What the evidence says</h2>
+  <p>Slow breathing is one of the better-studied non-drug ways to nudge blood pressure down. It's a gentle lever, not a hammer — useful for pre-high or mildly high pressure and as a companion to the bigger levers (less salt, less alcohol, isometric holds), not a replacement for medication in serious cases.</p>
+  <table>
+    <tr><th>Finding</th><th>Result</th></tr>
+    <tr><td>Meta-analysis of slow-breathing trials (systolic / diastolic)</td><td>about −5.3 / −2.7 mmHg</td></tr>
+    <tr><td>Range across studies (systolic)</td><td>roughly −3 to −9 mmHg</td></tr>
+    <tr><td>American Heart Association rating for device-guided slow breathing</td><td>Class IIa, evidence level B</td></tr>
+    <tr><td>Regulatory status</td><td>the RESPeRATE pacing device is FDA-cleared as an add-on to lower blood pressure</td></tr>
+  </table>
+  <p>The mechanism — six breaths a minute sharpening baroreflex sensitivity — is well established in the lab, including in people with high blood pressure and heart failure. The honest caveat: the trials are short (the longest run about nine weeks), so the very-long-term payoff isn't proven. This timer does the same job those studies used a dedicated gadget for — it just paces your breath.</p>
+
+  <h2>How much, and what to expect</h2>
+  <p>The dose the research is built on is simple and small: about <strong>15 minutes a day</strong>, most days, at roughly six breaths a minute. That's where the numbers above come from — it isn't a "more is always better" situation, so there's no need to grind out an hour. Fifteen focused minutes is the target.</p>
+  <table>
+    <tr><th>Daily</th><th>Adds up to</th><th>Over 4–8 weeks, expect</th></tr>
+    <tr><td>~5 min</td><td>~35 min/week</td><td>a small acute calming effect; below the studied dose</td></tr>
+    <tr><td>~15 min</td><td>~1.75 hr/week</td><td>the studied dose — roughly −3 to −9 mmHg systolic</td></tr>
+    <tr><td>2 × 15 min</td><td>~3.5 hr/week</td><td>similar range; splitting it (morning + evening) mainly helps consistency, not magnitude</td></tr>
+  </table>
+  <p>The drop builds gradually over four to eight weeks as the reflex adapts, rather than arriving all at once. If you already run low, expect the change to show up more in the steadiness of your numbers than in a dramatic headline drop.</p>
+
+  <div class="callout">
+    <p><strong>The pop-out button.</strong> Click <em>pop out ⇱</em> and the breathing bar detaches into a tiny window that floats on top of everything else — email, a spreadsheet, a video call. It's the difference between a timer buried in a background tab and a metronome sitting quietly in the corner of your screen: you can keep working and still catch the rhythm out of the corner of your eye, which is the whole point of pacing your breath without having to babysit it. Click <em>bring back ⇲</em> to dock it again. (Needs Chrome or Edge, version 116 or newer; in other browsers the tab still works — just shrink it into a corner.)</p>
+  </div>
+
+  <div class="callout">
+    <p><strong>Pairs well with music.</strong> This goes great with calm background music to relax, focus, and settle your pressure a little further: <a href="https://www.youtube.com/watch?v=qYnA9wWFHLI&list=RDqYnA9wWFHLI&start_radio=1" target="_blank" rel="noopener">this relaxing mix on YouTube</a>. Put it on, pop out the bar, and let both run while you work.</p>
+  </div>
+
+  <p class="disclaimer">Not medical advice. Slow breathing complements — it doesn't replace — a doctor's guidance or prescribed treatment. If you have low blood pressure, a heart condition, or feel dizzy, ease off and check with a clinician.</p>
+
+  <h2>Sources</h2>
+  <ul class="refs">
+    <li><a href="https://www.sciencedirect.com/science/article/abs/pii/S0965229918304242" target="_blank" rel="noopener">Device and non-device-guided slow breathing to reduce blood pressure: a systematic review and meta-analysis</a></li>
+    <li>American Physiological Society — <a href="https://journals.physiology.org/doi/full/10.1152/japplphysiol.00442.2019" target="_blank" rel="noopener">Device-guided slow breathing reduces blood pressure and sympathetic activity</a></li>
+    <li>NYU Clinical Correlations — <a href="https://www.clinicalcorrelations.org/2018/01/24/slow-respiration-to-lower-blood-pressure-2/" target="_blank" rel="noopener">Slow respiration to lower blood pressure</a> (AHA rating, RESPeRATE, Mayer-wave mechanism)</li>
+    <li>PMC — <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10844494/" target="_blank" rel="noopener">Mindful breathing as an effective technique in the management of hypertension</a></li>
+  </ul>
+
+  <a class="back" href="index.html">← all tools</a>
+</article>
+
+<script>
+  const toggleEl = document.getElementById('toggle');
+  const popoutBtn = document.getElementById('popout');
+  const breathEl = document.getElementById('breath');
+  const main = document.getElementById('main');
+
+  let currentPattern = '46';
+
+  // After moving #breath between documents (main <-> PiP), Chrome may restart
+  // some animations while preserving others, leaving them out of sync.
+  // Setting currentTime = 0 on all three animations puts them back at the
+  // same instant so they play forward together.
+  function syncAnimations() {
+    requestAnimationFrame(() => {
+      breathEl.querySelectorAll('.pill, .label-in, .label-out').forEach(el => {
+        el.getAnimations().forEach(anim => {
+          anim.currentTime = 0;
+        });
+      });
+    });
+  }
+
+  toggleEl.querySelectorAll('span').forEach(span => {
+    span.addEventListener('click', () => {
+      const pattern = span.dataset.pattern;
+      if (pattern === currentPattern) return;
+      currentPattern = pattern;
+      toggleEl.querySelectorAll('span').forEach(s =>
+        s.classList.toggle('active', s.dataset.pattern === pattern)
+      );
+      // Changing data-mode restarts BOTH pill and label animations
+      // in the same paint frame, keeping them perfectly synced.
+      breathEl.dataset.mode = pattern;
+      document.title = `exhale · ${pattern === '46' ? '4·6' : '4·8'}`;
+    });
+  });
+
+  // Document Picture-in-Picture (always-on-top window)
+  popoutBtn.addEventListener('click', async () => {
+    if (popoutBtn.dataset.state === 'popped') {
+      if (window._pipWin && !window._pipWin.closed) window._pipWin.close();
+      return;
+    }
+    if (!('documentPictureInPicture' in window)) {
+      alert(
+        'Always-on-top mode needs Chrome or Edge (version 116 or newer).\n\n' +
+        'This tab will still work as a normal window — you can resize it small ' +
+        'and keep it in a corner, but it won\'t float above other apps.'
+      );
+      return;
+    }
+    try {
+      const pipWindow = await documentPictureInPicture.requestWindow({
+        width: 320,
+        height: 90,
+      });
+      window._pipWin = pipWindow;
+
+      // Copy styles into PiP
+      [...document.styleSheets].forEach(styleSheet => {
+        try {
+          const cssRules = [...styleSheet.cssRules].map(r => r.cssText).join('');
+          const style = document.createElement('style');
+          style.textContent = cssRules;
+          pipWindow.document.head.appendChild(style);
+        } catch (e) {
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = styleSheet.href;
+          pipWindow.document.head.appendChild(link);
+        }
+      });
+
+      pipWindow.document.title = 'exhale';
+      pipWindow.document.body.style.background = '#0f2438';
+      pipWindow.document.body.style.margin = '0';
+
+      // Move breath element into PiP
+      pipWindow.document.body.append(breathEl);
+
+      // Chrome sometimes restarts the pill animation but preserves the
+      // label animations across the document move — re-sync them all.
+      syncAnimations();
+
+      // Placeholder in main window
+      const placeholder = document.createElement('div');
+      placeholder.className = 'placeholder';
+      placeholder.id = 'placeholder';
+      placeholder.textContent = 'popped out';
+      main.insertBefore(placeholder, main.firstChild);
+
+      popoutBtn.textContent = 'bring back ⇲';
+      popoutBtn.dataset.state = 'popped';
+
+      pipWindow.addEventListener('pagehide', () => {
+        const ph = document.getElementById('placeholder');
+        if (ph) {
+          main.insertBefore(breathEl, ph);
+          ph.remove();
+        } else {
+          main.insertBefore(breathEl, main.firstChild);
+        }
+        // Same re-sync after the move back.
+        syncAnimations();
+        popoutBtn.textContent = 'pop out ⇱';
+        popoutBtn.dataset.state = '';
+        window._pipWin = null;
+      });
+    } catch (err) {
+      console.error('PiP error:', err);
+      alert('Could not open the floating window. Try refreshing the page.');
+    }
+  });
+</script>
+</body>
+</html>

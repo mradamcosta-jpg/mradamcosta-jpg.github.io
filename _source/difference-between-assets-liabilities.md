@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/financial-freedom/strategy/difference-between-assets-liabilities/"
 ---
 
-![A table showing the difference between assets and liabilities. You want to own assets and access liabilities.](images/image-19-700x367.png)A table showing the difference between assets and liabilities. You want to own assets and access liabilities. (We'll cover this concept shortly.)
+![A table showing the difference between assets and liabilities. You want to own assets and access liabilities.](Claude/Website/_source/images/image-19-700x367.png)A table showing the difference between assets and liabilities. You want to own assets and access liabilities. (We'll cover this concept shortly.)
 
 ## With this simple concept, you can live beyond your means—and save more money than ever
 

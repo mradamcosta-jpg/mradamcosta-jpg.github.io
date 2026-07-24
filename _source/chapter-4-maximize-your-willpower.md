@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/productivity-course/chapter-4-maximize-your-willpower/"
 ---
 
-![An image that says, "Trust your struggle"](images/image-5_1.png)Science proves you can increase your willpower. Discover how in this chapter. (Photo: Photo by [DJ Johnson](https://unsplash.com/@dj_johns1?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).)
+![An image that says, "Trust your struggle"](Claude/Website/_source/images/image-5_1.png)Science proves you can increase your willpower. Discover how in this chapter. (Photo: Photo by [DJ Johnson](https://unsplash.com/@dj_johns1?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).)
 
 ## Why willpower sucks—and what do about it
 

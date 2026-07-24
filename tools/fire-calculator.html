@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIRE calculator</title>
+<style>
+  :root { --bg:#fafaf8; --fg:#1a1a1a; --muted:#666; --card:#fff; --border:#e2e2dd; --accent:#2f6f4f; --warn:#b3541e; --good:#2f6f4f; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#151517; --fg:#e8e8e6; --muted:#9a9a97; --card:#1e1e21; --border:#2e2e33; --accent:#6fbf94; --warn:#e08a4f; --good:#6fbf94; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--bg); color:var(--fg); line-height:1.5; }
+  main { max-width:760px; margin:0 auto; padding:36px 20px; }
+  h1 { font-size:1.5rem; margin:0 0 2px; }
+  .sub { color:var(--muted); font-size:.9rem; margin:0 0 24px; }
+  .sub a { color:var(--accent); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:12px; margin-bottom:20px; }
+  label { display:block; font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin-bottom:4px; }
+  input { width:100%; padding:8px 10px; font-size:1rem; border:1px solid var(--border); border-radius:8px; background:var(--card); color:var(--fg); }
+  input:focus { outline:none; border-color:var(--accent); }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:12px; margin-bottom:20px; }
+  .stat { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px 16px; }
+  .stat .l { font-size:.75rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }
+  .stat .v { font-size:1.35rem; font-weight:700; margin-top:2px; }
+  .stat .s { font-size:.8rem; color:var(--muted); }
+  #chartBox { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; }
+  svg { width:100%; height:auto; display:block; }
+  .note { font-size:.8rem; color:var(--muted); margin-top:20px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>FIRE calculator</h1>
+  <p class="sub">How long the portfolio lasts under steady assumptions. Not advice—a thinking tool. <a href="index.html">← all tools</a></p>
+
+  <div class="grid">
+    <div><label for="pf">Portfolio ($)</label><input id="pf" type="number" value="1000000" step="10000"></div>
+    <div><label for="sp">Annual spending ($)</label><input id="sp" type="number" value="40000" step="1000"></div>
+    <div><label for="gr">Real return (%/yr)</label><input id="gr" type="number" value="5" step="0.1"></div>
+    <div><label for="inf">Spending growth (%/yr)</label><input id="inf" type="number" value="0" step="0.1"></div>
+    <div><label for="yrs">Horizon (years)</label><input id="yrs" type="number" value="40" step="1"></div>
+  </div>
+
+  <div class="cards" id="stats"></div>
+  <div id="chartBox"></div>
+
+  <p class="note">Uses real (inflation-adjusted) returns, so leave spending growth at 0 unless you expect spending to outpace inflation. Withdrawal rate = spending ÷ portfolio. The classic "4% rule" came from the Trinity study's 30-year horizons; longer retirements argue for less. Sequence-of-returns risk isn't modeled here—a flat return assumption is kinder than reality.</p>
+</main>
+
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const fmt$ = (n) => "$" + Math.round(n).toLocaleString("en-US");
+
+  function calc() {
+    const pf0 = +$("pf").value || 0;
+    const sp0 = +$("sp").value || 0;
+    const gr = (+$("gr").value || 0) / 100;
+    const inf = (+$("inf").value || 0) / 100;
+    const yrs = Math.min(80, Math.max(1, +$("yrs").value || 40));
+
+    const path = [pf0];
+    let pf = pf0, sp = sp0, ranOut = null;
+    for (let y = 1; y <= yrs; y++) {
+      pf = (pf - sp) * (1 + gr);
+      sp = sp * (1 + inf);
+      if (pf <= 0 && ranOut === null) { ranOut = y; pf = 0; }
+      path.push(pf);
+    }
+
+    const wr = pf0 > 0 ? (sp0 / pf0) * 100 : 0;
+    const stats = $("stats");
+    stats.innerHTML = "";
+    const stat = (l, v, s, color) => {
+      const d = document.createElement("div");
+      d.className = "stat";
+      d.innerHTML = '<div class="l">' + l + '</div><div class="v"' + (color ? ' style="color:' + color + '"' : "") + ">" + v + '</div><div class="s">' + (s || "") + "</div>";
+      stats.appendChild(d);
+    };
+    stat("Withdrawal rate", wr.toFixed(2) + "%", wr <= 3.5 ? "conservative" : wr <= 4.3 ? "classic 4% territory" : "aggressive",
+      wr <= 4.3 ? "var(--good)" : "var(--warn)");
+    stat("Outcome", ranOut ? "Runs out" : "Lasts", ranOut ? "in year " + ranOut + " of " + yrs : "through year " + yrs,
+      ranOut ? "var(--warn)" : "var(--good)");
+    stat("Ending balance", fmt$(path[path.length - 1]), "in today's dollars");
+    const be = gr > 0 ? pf0 * gr : 0;
+    stat("Perpetual spend", fmt$(be), "growth alone covers this");
+
+    // chart
+    const W = 720, H = 260, L = 58, R = 12, T = 14, B = 26;
+    const maxV = Math.max(...path) * 1.06 || 1;
+    const X = (i) => L + (i / yrs) * (W - L - R);
+    const Y = (v) => T + (1 - v / maxV) * (H - T - B);
+    let s = '<svg viewBox="0 0 ' + W + " " + H + '" xmlns="http://www.w3.org/2000/svg">';
+    for (let i = 0; i <= 4; i++) {
+      const v = (maxV * i) / 4;
+      s += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + Y(v) + '" y2="' + Y(v) + '" stroke="var(--border)"/>';
+      s += '<text x="' + (L - 6) + '" y="' + (Y(v) + 4) + '" text-anchor="end" fill="var(--muted)" font-size="11">' +
+        (maxV >= 2e6 ? "$" + (v / 1e6).toFixed(1) + "M" : "$" + Math.round(v / 1000) + "k") + "</text>";
+    }
+    for (let i = 0; i <= 4; i++) {
+      const yr = Math.round((yrs * i) / 4);
+      s += '<text x="' + X(yr) + '" y="' + (H - 8) + '" text-anchor="middle" fill="var(--muted)" font-size="11">yr ' + yr + "</text>";
+    }
+    const line = path.map((v, i) => (i ? "L" : "M") + X(i).toFixed(1) + " " + Y(v).toFixed(1)).join("");
+    const area = line + "L" + X(yrs).toFixed(1) + " " + Y(0) + "L" + X(0) + " " + Y(0) + "Z";
+    s += '<path d="' + area + '" fill="var(--accent)" opacity="0.12"/>';
+    s += '<path d="' + line + '" fill="none" stroke="var(--accent)" stroke-width="2.5"/>';
+    if (ranOut) s += '<circle cx="' + X(ranOut) + '" cy="' + Y(0) + '" r="4" fill="var(--warn)"/>';
+    s += "</svg>";
+    $("chartBox").innerHTML = s;
+  }
+
+  for (const id of ["pf", "sp", "gr", "inf", "yrs"]) $(id).addEventListener("input", calc);
+  calc();
+})();
+</script>
+</body>
+</html>

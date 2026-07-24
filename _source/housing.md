@@ -6,7 +6,7 @@ status: "publish"
 original_url: "https://adam-costa.com/financial-freedom/reduce-expenses/housing/"
 ---
 
-![Back in 2016 our unique lifestyle got featured in Business Insider, and how we saved $100,000 a year traveling the world. You'll learn how we did it by the end of this guide.](images/image-13-700x530.png)Back in 2016 our unique lifestyle got featured in Business Insider. You'll learn how we did it by the end of this chapter.
+![Back in 2016 our unique lifestyle got featured in Business Insider, and how we saved $100,000 a year traveling the world. You'll learn how we did it by the end of this guide.](Claude/Website/_source/images/image-13-700x530.png)Back in 2016 our unique lifestyle got featured in Business Insider. You'll learn how we did it by the end of this chapter.
 
 ## How to live like a king, on a budget for bums
 
