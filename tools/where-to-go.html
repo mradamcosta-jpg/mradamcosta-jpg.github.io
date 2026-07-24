@@ -4,13 +4,34 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Where to go when</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root { --bg:#fafaf8; --fg:#1a1a1a; --muted:#666; --card:#fff; --border:#e2e2dd; --accent:#2f6f4f; --accent-soft:#e8f2ec; --chip:#f0f0ec; }
   @media (prefers-color-scheme: dark) {
     :root { --bg:#151517; --fg:#e8e8e6; --muted:#9a9a97; --card:#1e1e21; --border:#2e2e33; --accent:#6fbf94; --accent-soft:#213a2e; --chip:#26262b; }
   }
   * { box-sizing:border-box; }
+  html { font-size:115%; }
   body { margin:0; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--bg); color:var(--fg); line-height:1.6; }
+
+  /* ---- site header + navbar (matches adam-costa.com) ---- */
+  .site-header { width:100%; border-bottom:1px solid var(--border); margin-bottom:8px; }
+  .site-header .bar { max-width:1060px; margin:0 auto; padding:20px 20px 16px; display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:.5rem 1.5rem; }
+  .site-header .site-name { font-family:"Newsreader", Georgia, serif; font-weight:600; font-size:1.15rem; color:var(--fg); text-decoration:none; letter-spacing:.01em; }
+  .site-header .site-name:hover { color:#c2410c; }
+  .site-header nav { display:flex; flex-wrap:wrap; gap:1.1rem; font-family:"Inter", system-ui, sans-serif; font-size:.9rem; }
+  .site-header .nav-item { position:relative; }
+  .site-header .nav-item > a { color:var(--muted); text-decoration:none; }
+  .site-header .nav-item > a:hover { color:#c2410c; }
+  .site-header .nav-item > a.active { color:var(--fg); font-weight:500; }
+  .site-header .dropdown { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); z-index:50; min-width:14rem; max-width:90vw; max-height:70vh; overflow-y:auto; background:var(--card); border:1px solid var(--border); border-radius:8px; box-shadow:0 10px 28px rgba(0,0,0,.14); padding:.45rem 0; }
+  .site-header .nav-item:last-child .dropdown { left:auto; right:0; transform:none; }
+  .site-header .nav-item:hover .dropdown, .site-header .nav-item:focus-within .dropdown { display:block; }
+  .site-header .dropdown a { display:block; padding:.32rem .95rem; color:var(--fg); text-decoration:none; font-size:.82rem; line-height:1.4; white-space:nowrap; }
+  .site-header .dropdown a:hover { background:var(--accent-soft, rgba(127,127,127,.12)); color:#c2410c; }
+  @media (max-width:640px) { .site-header .dropdown { display:none !important; } }
   main { max-width:1060px; margin:0 auto; padding:40px 20px 64px; }
   h1 { font-size:1.7rem; margin:0 0 4px; }
   .sub { color:var(--muted); margin:0 0 24px; }
@@ -55,6 +76,63 @@
 </style>
 </head>
 <body>
+<header class="site-header">
+  <div class="bar">
+    <a class="site-name" href="/">Adam Costa</a>
+    <nav>
+      <div class="nav-item"><a href="../financial-freedom/">Financial freedom</a>
+        <div class="dropdown">
+          <a href="../financial-freedom/ff1-the-exact-roadmap/">1. The exact roadmap</a>
+          <a href="../financial-freedom/how-much-money-do-i-need-to-retire-at-40/">2. How much do you need?</a>
+          <a href="../financial-freedom/levels-of-financial-freedom/">3. Levels of financial freedom</a>
+          <a href="../financial-freedom/difference-between-assets-liabilities/">4. Assets vs. liabilities</a>
+          <a href="../financial-freedom/housing/">5. Housing</a>
+          <a href="../financial-freedom/taxes/">6. Taxes</a>
+          <a href="../financial-freedom/transportation/">7. Transportation</a>
+          <a href="../financial-freedom/ask-for-a-raise/">8. Ask for a raise</a>
+          <a href="../financial-freedom/work-remotely/">9. Work remotely</a>
+          <a href="../financial-freedom/creating-assets/">10. Create assets</a>
+          <a href="../financial-freedom/consulting/">11. Become a consultant</a>
+          <a href="../financial-freedom/buying-businesses/">12. Buy businesses</a>
+          <a href="../financial-freedom/investment-order/">13. Investment order</a>
+          <a href="../financial-freedom/asset-allocation/">14. Asset allocation</a>
+          <a href="../financial-freedom/build-wealth-automatically/">15. Automate your investments</a>
+          <a href="../financial-freedom/withdraw-your-money/">16. Withdraw your money</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="../productivity/">Productivity</a>
+        <div class="dropdown">
+          <a href="../productivity/introduction-what-youll-get-in-this-course/">Introduction</a>
+          <a href="../productivity/chapter-1-find-your-purpose/">1. Find your purpose</a>
+          <a href="../productivity/chapter-2-pinpoint-and-prioritize-your-goals/">2. Pinpoint your goals</a>
+          <a href="../productivity/chapter-3-optimize-your-workflow/">3. Optimize your workflow</a>
+          <a href="../productivity/chapter-4-maximize-your-willpower/">4. Maximize your willpower</a>
+          <a href="../productivity/chapter-5-build-rock-solid-routines/">5. Build rock-solid routines</a>
+          <a href="../productivity/chapter-6-block-distractions/">6. Block distractions</a>
+          <a href="../productivity/chapter-7-follow-through/">7. Follow through</a>
+          <a href="../productivity/conclusion-what-to-do-next/">Conclusion</a>
+          <a href="../productivity/additional-resources/">More resources</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="../life/">Life</a>
+        <div class="dropdown">
+          <a href="../life/sleepless/">Sleep(less)</a>
+          <a href="../life/journey-through-the-gi-tract/">Journey through the GI tract</a>
+          <a href="../life/knots/">Knots</a>
+          <a href="../life/save-money-by-traveling/">Quit yer job and travel</a>
+          <a href="../life/media-appearances/">Media appearances</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="/tools/" class="active">Tools</a>
+        <div class="dropdown">
+          <a href="/tools/fire-calculator.html">FIRE calculator</a>
+          <a href="/tools/where-to-go.html">Where to go when</a>
+          <a href="/tools/exhale.html">Exhale breathing timer</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
 <main>
   <a class="home" href="index.html">&larr; Adam's tools</a>
   <h1>Where to go when</h1>

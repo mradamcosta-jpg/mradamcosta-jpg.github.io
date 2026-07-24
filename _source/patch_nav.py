@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from navdata import render_nav
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ACTIVE = {"financial-freedom": "ff", "productivity": "prod", "life": "life"}
+ACTIVE = {"financial-freedom": "ff", "productivity": "prod", "life": "life", "tools": "tools"}
 NAV_RE = re.compile(r"<nav>.*?</nav>", re.S)
 
 
